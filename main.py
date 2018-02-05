@@ -28,7 +28,7 @@ KEEP_PROB = 0.5
 LEARNING_RATE = 1e-4
 EPOCHS = 20
 SAVE_THRESHOLD = 1  # saves the model after this many epochs
-BATCH_SIZE = 2  # 2 for AWS instance 3 GB RAM, 16 for MBP CPU training
+BATCH_SIZE = 16  # 2 for AWS instance 3 GB RAM, 16 for MBP CPU training
 NUM_CLASSES = 2  # number of segmentation classes (road and non-road)
 IMAGE_SHAPE = (160, 576)
 IOU_ENABLED = True  # If true, IoU - intersection over union value is determined after each epoch
@@ -148,14 +148,14 @@ def layers(vgg_layer3_out, vgg_layer4_out, vgg_layer7_out, num_classes):
         layer_3_skip = tf.add(layer_4_upsampled, layer_3_conv)
 
         # upsample layer 3
-        layer_3_upsampled = tf.layers.conv2d_transpose(layer_3_skip, num_classes, kernel_size=16, strides=(8, 8),
-                                                       padding='same',
-                                                       kernel_initializer=tf.random_normal_initializer(
-                                                           stddev=KERNEL_INIT_STD_DEV),
-                                                       kernel_regularizer=tf.contrib.layers.l2_regularizer(L2_REG),
-                                                       name='layer_3_upsampled')
-
-    return layer_3_upsampled
+        output = tf.layers.conv2d_transpose(layer_3_skip, num_classes, kernel_size=16, strides=(8, 8),
+                                            padding='same',
+                                            kernel_initializer=tf.random_normal_initializer(
+                                                stddev=KERNEL_INIT_STD_DEV),
+                                            kernel_regularizer=tf.contrib.layers.l2_regularizer(L2_REG),
+                                            name='layer_3_upsampled')
+        tf.Print(output, [tf.shape(output)][1:3])
+    return output
 
 
 print("# Test layers():")
