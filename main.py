@@ -266,30 +266,32 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
                 mean_iou = sess.run(iou)
                 total_iou += mean_iou * len(image)
 
-            epoch_ticks.write("epoch: {:2d} / {:2d}, #images: {:3d}, loss: {:.6f}, ".format((epoch + 1), epochs, image_count, loss))
+            epoch_ticks.write(
+                "#images={:3d}, loss={:.6f}, mean-iou={:.6f}, batch-time={}".format(image_count, loss, mean_iou, str(
+                    timedelta(seconds=(stop_time - start_batch_time)))))
 
-            print("Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
-                  " #Images: {:3d}".format(image_count),
-                  " Loss: {:.6f}".format(loss),
-                  " Mean-IoU: {:.6f}".format(mean_iou),
-                  " Batch-Time: ", str(timedelta(seconds=(stop_time - start_batch_time))),
-                  " Epoch-Time: ", str(timedelta(seconds=(stop_time - start_epoch_time))),
-                  " Total-Time: ", str(timedelta(seconds=(stop_time - start_time))),
-                  )
+            # print("Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
+            #       " #Images: {:3d}".format(image_count),
+            #       " Loss: {:.6f}".format(loss),
+            #       " Mean-IoU: {:.6f}".format(mean_iou),
+            #       " Batch-Time: ", str(timedelta(seconds=(stop_time - start_batch_time))),
+            #       " Epoch-Time: ", str(timedelta(seconds=(stop_time - start_epoch_time))),
+            #       " Total-Time: ", str(timedelta(seconds=(stop_time - start_time))),
+            #       )
 
         average_iou = total_iou / image_count
 
-        print("### Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
-              " #Images: {:3d}".format(image_count),
-              " Loss: {:.6f}".format(loss),
-              " Avg-IoU: {:.6f}".format(average_iou),
-              " Epoch-Time: ", str(timedelta(seconds=(stop_time - start_epoch_time))),
-              " Total-Time: ", str(timedelta(seconds=(stop_time - start_time))),
-              )
+        # print("### Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
+        #       " #Images: {:3d}".format(image_count),
+        #       " Loss: {:.6f}".format(loss),
+        #       " Avg-IoU: {:.6f}".format(average_iou),
+        #       " Epoch-Time: ", str(timedelta(seconds=(stop_time - start_epoch_time))),
+        #       " Total-Time: ", str(timedelta(seconds=(stop_time - start_time))),
+        #       )
 
         # safe model checkpoint after configured number of epochs
         if (epoch + 1) % SAVE_THRESHOLD == 0:
-            print("Saving model after epoch {}...".format(epoch + 1))
+            epoch_ticks.write("Saving model after epoch {}...".format(epoch + 1))
             saver.save(sess, os.path.join(BUILD_DIR, 'epoch_' + str(epoch + 1) + '.ckpt'))
 
 
