@@ -2,7 +2,6 @@ import os.path
 import sys
 import time
 import warnings
-from datetime import timedelta
 from distutils.version import LooseVersion
 
 import tensorflow as tf
@@ -230,15 +229,11 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
     # Merge all the summaries and write them out to /tmp/mnist_logs (by default)
     merged = tf.summary.merge_all()
     train_writer = tf.summary.FileWriter(SUMMARY_DIR + '/train', sess.graph)
-    test_writer = tf.summary.FileWriter(SUMMARY_DIR + '/test')
-
-    start_time = time.time()
 
     # Progress bar
     epoch_ticks = tqdm(range(int(epochs)), desc="Training Model", file=sys.stdout, unit="Epoch")
 
     for epoch in epoch_ticks:
-        start_epoch_time = time.time()
         loss = -1.0
         total_iou = 0.0
         image_count = 0
@@ -266,37 +261,15 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
                 mean_iou = sess.run(iou)
                 total_iou += mean_iou * len(image)
 
-            epoch_ticks.write(
-                "#images={:3d}, loss={:.6f}, mean-iou={:.6f}, batch-time={}".format(image_count, loss, mean_iou, str(
-                    timedelta(seconds=(stop_time - start_batch_time)))))
-
-            # print("Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
-            #       " #Images: {:3d}".format(image_count),
-            #       " Loss: {:.6f}".format(loss),
-            #       " Mean-IoU: {:.6f}".format(mean_iou),
-            #       " Batch-Time: ", str(timedelta(seconds=(stop_time - start_batch_time))),
-            #       " Epoch-Time: ", str(timedelta(seconds=(stop_time - start_epoch_time))),
-            #       " Total-Time: ", str(timedelta(seconds=(stop_time - start_time))),
-            #       )
-
         average_iou = total_iou / image_count
-
-        # print("### Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
-        #       " #Images: {:3d}".format(image_count),
-        #       " Loss: {:.6f}".format(loss),
-        #       " Avg-IoU: {:.6f}".format(average_iou),
-        #       " Epoch-Time: ", str(timedelta(seconds=(stop_time - start_epoch_time))),
-        #       " Total-Time: ", str(timedelta(seconds=(stop_time - start_time))),
-        #       )
+        epoch_ticks.write(
+            "Epoch: {:2d}/{:2d}, #images={:3d}, loss={:.6f}, avg-iou={:.6f}".format((epoch + 1), epochs, image_count,
+                                                                                    loss, average_iou))
 
         # safe model checkpoint after configured number of epochs
         if (epoch + 1) % SAVE_THRESHOLD == 0:
             epoch_ticks.write("Saving model after epoch {}...".format(epoch + 1))
             saver.save(sess, os.path.join(BUILD_DIR, 'epoch_' + str(epoch + 1) + '.ckpt'))
-
-
-# print("# Test train_nn():")
-# tests.test_train_nn(train_nn)
 
 
 def run():
