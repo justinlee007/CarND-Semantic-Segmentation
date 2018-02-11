@@ -1,10 +1,12 @@
 import os.path
+import sys
 import time
 import warnings
 from datetime import timedelta
 from distutils.version import LooseVersion
 
 import tensorflow as tf
+from tqdm import tqdm
 
 import helper
 import project_tests as tests
@@ -34,11 +36,11 @@ IMAGE_SHAPE = (160, 576)
 IOU_ENABLED = True  # If true, IoU - intersection over union value is determined after each epoch
 
 DATA_DIR = './data'
-RUNS_DIR = './runs'
-SUMMARY_DIR = './tensorflow_log'
+BUILD_DIR = './build'
+SUMMARY_DIR = './build/tensorflow_log'
 
 
-def printStatistics():
+def print_hyper_params():
     """
     Prints information about the training set and the applied hyper paraemters.
     """
@@ -46,8 +48,8 @@ def printStatistics():
     print(" Hyper-parameters")
     print("---------------------------------------")
     print(" Learning rate:         {}".format(LEARNING_RATE))
-    print(" Keep porbability:      {}".format(KEEP_PROB))
-    print(" L2 Regularizer:        {}".format(L2_REG))
+    print(" Keep probability:      {}".format(KEEP_PROB))
+    print(" L2 regularizer:        {}".format(L2_REG))
     print(" Kernel Std.Dev. init.: {}".format(KERNEL_INIT_STD_DEV))
     print(" Epochs:                {}".format(EPOCHS))
     print(" Batch size:            {}".format(BATCH_SIZE))
@@ -232,7 +234,10 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
 
     start_time = time.time()
 
-    for epoch in range(epochs):
+    # Progress bar
+    epoch_ticks = tqdm(range(int(epochs)), desc="Training Model", file=sys.stdout, unit="Epoch")
+
+    for epoch in epoch_ticks:
         start_epoch_time = time.time()
         loss = -1.0
         total_iou = 0.0
@@ -250,10 +255,6 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
 
             train_writer.add_summary(summary, epoch)
 
-            text = "Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs) + \
-                   " #Images: {:3d}".format(image_count) + \
-                   " Loss: {:.6f}".format(loss)
-
             # calculate IoU - intersection-over-union
             if iou_obj is not None:
                 iou = iou_obj[0]
@@ -264,6 +265,8 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
                                             keep_prob: 1.0})
                 mean_iou = sess.run(iou)
                 total_iou += mean_iou * len(image)
+
+            epoch_ticks.write("epoch: {:2d} / {:2d}, #images: {:3d}, loss: {:.6f}, ".format((epoch + 1), epochs, image_count, loss))
 
             print("Epoch: {:2d}".format(epoch + 1), "/ {:2d}".format(epochs),
                   " #Images: {:3d}".format(image_count),
@@ -287,7 +290,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
         # safe model checkpoint after configured number of epochs
         if (epoch + 1) % SAVE_THRESHOLD == 0:
             print("Saving model after epoch {}...".format(epoch + 1))
-            saver.save(sess, os.path.join(RUNS_DIR, 'epoch_' + str(epoch + 1) + '.ckpt'))
+            saver.save(sess, os.path.join(BUILD_DIR, 'epoch_' + str(epoch + 1) + '.ckpt'))
 
 
 # print("# Test train_nn():")
@@ -304,7 +307,7 @@ def run():
     # You'll need a GPU with at least 10 teraFLOPS to train on.
     #  https://www.cityscapes-dataset.com/
 
-    printStatistics()
+    print_hyper_params()
 
     with tf.Session() as sess:
         # Path to vgg model
@@ -343,7 +346,7 @@ def run():
 
         # Save inference data using helper.save_inference_samples
         print("Saving inference samples...")
-        helper.save_inference_samples(RUNS_DIR, DATA_DIR, sess, IMAGE_SHAPE, logits, keep_prob, input_image)
+        helper.save_inference_samples(BUILD_DIR, DATA_DIR, sess, IMAGE_SHAPE, logits, keep_prob, input_image)
 
         # OPTIONAL: Apply the trained model to a video
 
