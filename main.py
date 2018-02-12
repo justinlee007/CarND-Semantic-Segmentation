@@ -29,6 +29,7 @@ KEEP_PROB = 0.5
 LEARNING_RATE = 1e-4
 EPOCHS = 20
 SAVE_THRESHOLD = 5  # saves the model after this many epochs
+LOSS_THRESHOLD = 0.02
 BATCH_SIZE = 12  # 2 for AWS instance 3 GB RAM, 16 for MBP CPU training
 NUM_CLASSES = 2  # number of segmentation classes (road and non-road)
 IMAGE_SHAPE = (160, 576)
@@ -266,10 +267,14 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
             "Epoch: {:2d}/{:2d}, #images={:3d}, loss={:.6f}, avg-iou={:.6f}".format((epoch + 1), epochs, image_count,
                                                                                     loss, average_iou))
 
-        # safe model checkpoint after configured number of epochs
-        if (epoch + 1) % SAVE_THRESHOLD == 0:
+        loss_threshold_met = loss < LOSS_THRESHOLD
+        if (epoch + 1) % SAVE_THRESHOLD == 0 or loss_threshold_met:
+            # safe model checkpoint after configured number of epochs
             epoch_ticks.write("Saving model after epoch {}...".format(epoch + 1))
             saver.save(sess, os.path.join(BUILD_DIR, 'epoch_' + str(epoch + 1) + '.ckpt'))
+            if loss_threshold_met:
+                epoch_ticks.write("Loss threshold met. Training complete.")
+                break
 
 
 def run():
