@@ -1,29 +1,3 @@
-2018-02-05 17:53:10.112009: I tensorflow/core/platform/s3/aws_logging.cc:53] Initializing Curl library
-2018-02-05 17:53:11.308925: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
-2018-02-05 17:53:13.190286: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-02-05 17:53:13.190632: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Found device 0 with properties: 
-name: Tesla M60 major: 5 minor: 2 memoryClockRate(GHz): 1.1775
-pciBusID: 0000:00:1e.0
-totalMemory: 7.43GiB freeMemory: 7.36GiB
-2018-02-05 17:53:13.190648: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1300] Adding visible gpu device 0
-2018-02-05 17:53:13.452403: I tensorflow/core/common_runtime/gpu/gpu_device.cc:987] Creating TensorFlow device (/device:GPU:0 with 7113 MB memory) -> physical GPU (device: 0, name: Tesla M60, pci bus id: 0000:00:1e.0, compute capability: 5.2)
-2018-02-05 17:53:13.522152: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1300] Adding visible gpu device 0
-2018-02-05 17:53:13.522289: I tensorflow/core/common_runtime/gpu/gpu_device.cc:987] Creating TensorFlow device (/device:GPU:0 with 149 MB memory) -> physical GPU (device: 0, name: Tesla M60, pci bus id: 0000:00:1e.0, compute capability: 5.2)
-2018-02-05 17:53:13.523287: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1300] Adding visible gpu device 0
-2018-02-05 17:53:13.523372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:987] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 149 MB memory) -> physical GPU (device: 0, name: Tesla M60, pci bus id: 0000:00:1e.0, compute capability: 5.2)
-WARNING:tensorflow:From main.py:181: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-
-Future major versions of TensorFlow will allow gradients to flow
-into the labels input on backprop by default.
-
-See tf.nn.softmax_cross_entropy_with_logits_v2.
-
-2018-02-05 17:53:14.614661: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1300] Adding visible gpu device 0
-2018-02-05 17:53:14.614795: I tensorflow/core/common_runtime/gpu/gpu_device.cc:987] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 149 MB memory) -> physical GPU (device: 0, name: Tesla M60, pci bus id: 0000:00:1e.0, compute capability: 5.2)
-2018-02-05 17:53:14.643242: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1300] Adding visible gpu device 0
-2018-02-05 17:53:14.643340: I tensorflow/core/common_runtime/gpu/gpu_device.cc:987] Creating TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 149 MB memory) -> physical GPU (device: 0, name: Tesla M60, pci bus id: 0000:00:1e.0, compute capability: 5.2)
-2018-02-05 17:53:28.807109: W tensorflow/core/common_runtime/bfc_allocator.cc:217] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.16GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
 TensorFlow Version: 1.4.0
 Default GPU Device: /device:GPU:0
 Tests Passed
@@ -35,11 +9,11 @@ Tests Passed
  Hyper-parameters
 ---------------------------------------
  Learning rate:         0.0001
- Keep porbability:      0.5
- L2 Regularizer:        1e-05
+ Keep probability:      0.5
+ L2 regularizer:        1e-05
  Kernel Std.Dev. init.: 0.001
  Epochs:                20
- Batch size:            16
+ Batch size:            12
  IoU enabled:           True
 
  Network Setup
@@ -49,426 +23,31 @@ Tests Passed
 
 Loading model...
 Training model...
-Epoch:  1 / 20  #Images:  16  Loss: 0.693028  Mean-IoU: 0.283612  Batch-Time:  0:00:07.061728  Epoch-Time:  0:00:07.641992  Total-Time:  0:00:07.641995
-Epoch:  1 / 20  #Images:  32  Loss: 0.690079  Mean-IoU: 0.252070  Batch-Time:  0:00:01.515339  Epoch-Time:  0:00:10.608243  Total-Time:  0:00:10.608247
-Epoch:  1 / 20  #Images:  48  Loss: 0.675532  Mean-IoU: 0.236841  Batch-Time:  0:00:01.501812  Epoch-Time:  0:00:13.152178  Total-Time:  0:00:13.152182
-Epoch:  1 / 20  #Images:  64  Loss: 0.646492  Mean-IoU: 0.217710  Batch-Time:  0:00:01.507160  Epoch-Time:  0:00:15.695419  Total-Time:  0:00:15.695423
-Epoch:  1 / 20  #Images:  80  Loss: 0.605508  Mean-IoU: 0.199095  Batch-Time:  0:00:01.510168  Epoch-Time:  0:00:18.237574  Total-Time:  0:00:18.237578
-Epoch:  1 / 20  #Images:  96  Loss: 0.567776  Mean-IoU: 0.189655  Batch-Time:  0:00:01.505150  Epoch-Time:  0:00:20.779967  Total-Time:  0:00:20.779971
-Epoch:  1 / 20  #Images: 112  Loss: 0.507329  Mean-IoU: 0.178435  Batch-Time:  0:00:01.505759  Epoch-Time:  0:00:23.316041  Total-Time:  0:00:23.316045
-Epoch:  1 / 20  #Images: 128  Loss: 0.498037  Mean-IoU: 0.170245  Batch-Time:  0:00:01.500534  Epoch-Time:  0:00:25.850116  Total-Time:  0:00:25.850120
-Epoch:  1 / 20  #Images: 144  Loss: 0.476346  Mean-IoU: 0.163856  Batch-Time:  0:00:01.506118  Epoch-Time:  0:00:28.388427  Total-Time:  0:00:28.388431
-Epoch:  1 / 20  #Images: 160  Loss: 0.452556  Mean-IoU: 0.157222  Batch-Time:  0:00:01.504584  Epoch-Time:  0:00:30.934329  Total-Time:  0:00:30.934333
-Epoch:  1 / 20  #Images: 176  Loss: 0.501738  Mean-IoU: 0.154320  Batch-Time:  0:00:01.505690  Epoch-Time:  0:00:33.472797  Total-Time:  0:00:33.472801
-Epoch:  1 / 20  #Images: 192  Loss: 0.377492  Mean-IoU: 0.148535  Batch-Time:  0:00:01.499815  Epoch-Time:  0:00:36.013233  Total-Time:  0:00:36.013237
-Epoch:  1 / 20  #Images: 208  Loss: 0.385253  Mean-IoU: 0.144560  Batch-Time:  0:00:01.509365  Epoch-Time:  0:00:38.556842  Total-Time:  0:00:38.556846
-Epoch:  1 / 20  #Images: 224  Loss: 0.425813  Mean-IoU: 0.143217  Batch-Time:  0:00:01.510419  Epoch-Time:  0:00:41.101913  Total-Time:  0:00:41.101917
-Epoch:  1 / 20  #Images: 240  Loss: 0.410930  Mean-IoU: 0.141204  Batch-Time:  0:00:01.510948  Epoch-Time:  0:00:43.646952  Total-Time:  0:00:43.646956
-Epoch:  1 / 20  #Images: 256  Loss: 0.389612  Mean-IoU: 0.139199  Batch-Time:  0:00:01.500633  Epoch-Time:  0:00:46.179699  Total-Time:  0:00:46.179703
-Epoch:  1 / 20  #Images: 272  Loss: 0.389393  Mean-IoU: 0.137826  Batch-Time:  0:00:01.508421  Epoch-Time:  0:00:48.716156  Total-Time:  0:00:48.716159
-Epoch:  1 / 20  #Images: 288  Loss: 0.337713  Mean-IoU: 0.134874  Batch-Time:  0:00:01.505051  Epoch-Time:  0:00:51.260731  Total-Time:  0:00:51.260734
-Epoch:  1 / 20  #Images: 289  Loss: 0.237748  Mean-IoU: 0.134554  Batch-Time:  0:00:01.126146  Epoch-Time:  0:00:52.885724  Total-Time:  0:00:52.885728
-### Epoch:  1 / 20  #Images: 289  Loss: 0.237748  Avg-IoU: 0.177212  Epoch-Time:  0:00:52.885724  Total-Time:  0:00:52.885728
-Saving model after epoch 1...
-Epoch:  2 / 20  #Images:  16  Loss: 0.342850  Mean-IoU: 0.133110  Batch-Time:  0:00:01.765821  Epoch-Time:  0:00:02.344672  Total-Time:  0:02:03.060718
-Epoch:  2 / 20  #Images:  32  Loss: 0.334967  Mean-IoU: 0.131631  Batch-Time:  0:00:01.511252  Epoch-Time:  0:00:04.897606  Total-Time:  0:02:05.613652
-Epoch:  2 / 20  #Images:  48  Loss: 0.308251  Mean-IoU: 0.129096  Batch-Time:  0:00:01.507199  Epoch-Time:  0:00:07.441840  Total-Time:  0:02:08.157886
-Epoch:  2 / 20  #Images:  64  Loss: 0.299822  Mean-IoU: 0.127231  Batch-Time:  0:00:01.516784  Epoch-Time:  0:00:09.994309  Total-Time:  0:02:10.710355
-Epoch:  2 / 20  #Images:  80  Loss: 0.303240  Mean-IoU: 0.124960  Batch-Time:  0:00:01.506894  Epoch-Time:  0:00:12.545360  Total-Time:  0:02:13.261405
-Epoch:  2 / 20  #Images:  96  Loss: 0.285226  Mean-IoU: 0.122855  Batch-Time:  0:00:01.504982  Epoch-Time:  0:00:15.086184  Total-Time:  0:02:15.802230
-Epoch:  2 / 20  #Images: 112  Loss: 0.304042  Mean-IoU: 0.121295  Batch-Time:  0:00:01.507191  Epoch-Time:  0:00:17.636327  Total-Time:  0:02:18.352373
-Epoch:  2 / 20  #Images: 128  Loss: 0.272120  Mean-IoU: 0.118826  Batch-Time:  0:00:01.509714  Epoch-Time:  0:00:20.184171  Total-Time:  0:02:20.900217
-Epoch:  2 / 20  #Images: 144  Loss: 0.268324  Mean-IoU: 0.117099  Batch-Time:  0:00:01.504941  Epoch-Time:  0:00:22.728408  Total-Time:  0:02:23.444454
-Epoch:  2 / 20  #Images: 160  Loss: 0.267972  Mean-IoU: 0.115434  Batch-Time:  0:00:01.509681  Epoch-Time:  0:00:25.276885  Total-Time:  0:02:25.992930
-Epoch:  2 / 20  #Images: 176  Loss: 0.297062  Mean-IoU: 0.114351  Batch-Time:  0:00:01.509176  Epoch-Time:  0:00:27.825669  Total-Time:  0:02:28.541715
-Epoch:  2 / 20  #Images: 192  Loss: 0.217830  Mean-IoU: 0.112215  Batch-Time:  0:00:01.512480  Epoch-Time:  0:00:30.373564  Total-Time:  0:02:31.089609
-Epoch:  2 / 20  #Images: 208  Loss: 0.234459  Mean-IoU: 0.110444  Batch-Time:  0:00:01.504157  Epoch-Time:  0:00:32.916196  Total-Time:  0:02:33.632242
-Epoch:  2 / 20  #Images: 224  Loss: 0.241415  Mean-IoU: 0.108712  Batch-Time:  0:00:01.513205  Epoch-Time:  0:00:35.462905  Total-Time:  0:02:36.178951
-Epoch:  2 / 20  #Images: 240  Loss: 0.258675  Mean-IoU: 0.107326  Batch-Time:  0:00:01.505056  Epoch-Time:  0:00:38.010917  Total-Time:  0:02:38.726963
-Epoch:  2 / 20  #Images: 256  Loss: 0.229596  Mean-IoU: 0.105523  Batch-Time:  0:00:01.507844  Epoch-Time:  0:00:40.551342  Total-Time:  0:02:41.267388
-Epoch:  2 / 20  #Images: 272  Loss: 0.219161  Mean-IoU: 0.103730  Batch-Time:  0:00:01.510687  Epoch-Time:  0:00:43.104112  Total-Time:  0:02:43.820158
-Epoch:  2 / 20  #Images: 288  Loss: 0.200862  Mean-IoU: 0.101933  Batch-Time:  0:00:01.507280  Epoch-Time:  0:00:45.649599  Total-Time:  0:02:46.365645
-Epoch:  2 / 20  #Images: 289  Loss: 0.373909  Mean-IoU: 0.101838  Batch-Time:  0:00:00.396560  Epoch-Time:  0:00:46.554032  Total-Time:  0:02:47.270078
-### Epoch:  2 / 20  #Images: 289  Loss: 0.373909  Avg-IoU: 0.116935  Epoch-Time:  0:00:46.554032  Total-Time:  0:02:47.270078
-Saving model after epoch 2...
-Epoch:  3 / 20  #Images:  16  Loss: 0.222179  Mean-IoU: 0.100978  Batch-Time:  0:00:01.566819  Epoch-Time:  0:00:02.144581  Total-Time:  0:02:51.819369
-Epoch:  3 / 20  #Images:  32  Loss: 0.273077  Mean-IoU: 0.100254  Batch-Time:  0:00:01.511318  Epoch-Time:  0:00:04.692238  Total-Time:  0:02:54.367026
-Epoch:  3 / 20  #Images:  48  Loss: 0.239427  Mean-IoU: 0.098759  Batch-Time:  0:00:01.509614  Epoch-Time:  0:00:07.248767  Total-Time:  0:02:56.923555
-Epoch:  3 / 20  #Images:  64  Loss: 0.171099  Mean-IoU: 0.097019  Batch-Time:  0:00:01.515547  Epoch-Time:  0:00:09.800831  Total-Time:  0:02:59.475618
-Epoch:  3 / 20  #Images:  80  Loss: 0.190755  Mean-IoU: 0.095546  Batch-Time:  0:00:01.509408  Epoch-Time:  0:00:12.352690  Total-Time:  0:03:02.027478
-Epoch:  3 / 20  #Images:  96  Loss: 0.205693  Mean-IoU: 0.094144  Batch-Time:  0:00:01.508908  Epoch-Time:  0:00:14.901333  Total-Time:  0:03:04.576121
-Epoch:  3 / 20  #Images: 112  Loss: 0.202442  Mean-IoU: 0.092964  Batch-Time:  0:00:01.498638  Epoch-Time:  0:00:17.450983  Total-Time:  0:03:07.125771
-Epoch:  3 / 20  #Images: 128  Loss: 0.202475  Mean-IoU: 0.091722  Batch-Time:  0:00:01.505634  Epoch-Time:  0:00:19.993528  Total-Time:  0:03:09.668316
-Epoch:  3 / 20  #Images: 144  Loss: 0.213408  Mean-IoU: 0.090601  Batch-Time:  0:00:01.499543  Epoch-Time:  0:00:22.548018  Total-Time:  0:03:12.222805
-Epoch:  3 / 20  #Images: 160  Loss: 0.204451  Mean-IoU: 0.089638  Batch-Time:  0:00:01.512474  Epoch-Time:  0:00:25.097784  Total-Time:  0:03:14.772572
-Epoch:  3 / 20  #Images: 176  Loss: 0.178800  Mean-IoU: 0.088533  Batch-Time:  0:00:01.509916  Epoch-Time:  0:00:27.649386  Total-Time:  0:03:17.324174
-Epoch:  3 / 20  #Images: 192  Loss: 0.206432  Mean-IoU: 0.087643  Batch-Time:  0:00:01.514958  Epoch-Time:  0:00:30.197153  Total-Time:  0:03:19.871941
-Epoch:  3 / 20  #Images: 208  Loss: 0.191485  Mean-IoU: 0.086673  Batch-Time:  0:00:01.507834  Epoch-Time:  0:00:32.750449  Total-Time:  0:03:22.425237
-Epoch:  3 / 20  #Images: 224  Loss: 0.157965  Mean-IoU: 0.085449  Batch-Time:  0:00:01.514071  Epoch-Time:  0:00:35.301848  Total-Time:  0:03:24.976636
-Epoch:  3 / 20  #Images: 240  Loss: 0.180729  Mean-IoU: 0.084503  Batch-Time:  0:00:01.509380  Epoch-Time:  0:00:37.854324  Total-Time:  0:03:27.529112
-Epoch:  3 / 20  #Images: 256  Loss: 0.184861  Mean-IoU: 0.083620  Batch-Time:  0:00:01.511792  Epoch-Time:  0:00:40.401799  Total-Time:  0:03:30.076587
-Epoch:  3 / 20  #Images: 272  Loss: 0.148514  Mean-IoU: 0.082520  Batch-Time:  0:00:01.500979  Epoch-Time:  0:00:42.950649  Total-Time:  0:03:32.625436
-Epoch:  3 / 20  #Images: 288  Loss: 0.182492  Mean-IoU: 0.081756  Batch-Time:  0:00:01.509878  Epoch-Time:  0:00:45.495906  Total-Time:  0:03:35.170693
-Epoch:  3 / 20  #Images: 289  Loss: 0.212326  Mean-IoU: 0.081684  Batch-Time:  0:00:00.399293  Epoch-Time:  0:00:46.398099  Total-Time:  0:03:36.072887
-### Epoch:  3 / 20  #Images: 289  Loss: 0.212326  Avg-IoU: 0.090654  Epoch-Time:  0:00:46.398099  Total-Time:  0:03:36.072887
-Saving model after epoch 3...
-Epoch:  4 / 20  #Images:  16  Loss: 0.177621  Mean-IoU: 0.080811  Batch-Time:  0:00:01.777871  Epoch-Time:  0:00:02.354640  Total-Time:  0:03:40.831124
-Epoch:  4 / 20  #Images:  32  Loss: 0.193526  Mean-IoU: 0.080010  Batch-Time:  0:00:01.502064  Epoch-Time:  0:00:04.896856  Total-Time:  0:03:43.373340
-Epoch:  4 / 20  #Images:  48  Loss: 0.153994  Mean-IoU: 0.079170  Batch-Time:  0:00:01.499884  Epoch-Time:  0:00:07.438769  Total-Time:  0:03:45.915253
-Epoch:  4 / 20  #Images:  64  Loss: 0.166423  Mean-IoU: 0.078489  Batch-Time:  0:00:01.509816  Epoch-Time:  0:00:09.985936  Total-Time:  0:03:48.462420
-Epoch:  4 / 20  #Images:  80  Loss: 0.144103  Mean-IoU: 0.077621  Batch-Time:  0:00:01.502619  Epoch-Time:  0:00:12.537765  Total-Time:  0:03:51.014249
-Epoch:  4 / 20  #Images:  96  Loss: 0.142455  Mean-IoU: 0.076773  Batch-Time:  0:00:01.509853  Epoch-Time:  0:00:15.082173  Total-Time:  0:03:53.558657
-Epoch:  4 / 20  #Images: 112  Loss: 0.139299  Mean-IoU: 0.075943  Batch-Time:  0:00:01.501319  Epoch-Time:  0:00:17.627420  Total-Time:  0:03:56.103904
-Epoch:  4 / 20  #Images: 128  Loss: 0.137699  Mean-IoU: 0.075177  Batch-Time:  0:00:01.512822  Epoch-Time:  0:00:20.176963  Total-Time:  0:03:58.653447
-Epoch:  4 / 20  #Images: 144  Loss: 0.137964  Mean-IoU: 0.074401  Batch-Time:  0:00:01.499794  Epoch-Time:  0:00:22.715830  Total-Time:  0:04:01.192315
-Epoch:  4 / 20  #Images: 160  Loss: 0.146877  Mean-IoU: 0.073626  Batch-Time:  0:00:01.510328  Epoch-Time:  0:00:25.262755  Total-Time:  0:04:03.739239
-Epoch:  4 / 20  #Images: 176  Loss: 0.152548  Mean-IoU: 0.073006  Batch-Time:  0:00:01.500702  Epoch-Time:  0:00:27.809739  Total-Time:  0:04:06.286223
-Epoch:  4 / 20  #Images: 192  Loss: 0.142848  Mean-IoU: 0.072295  Batch-Time:  0:00:01.506052  Epoch-Time:  0:00:30.352356  Total-Time:  0:04:08.828840
-Epoch:  4 / 20  #Images: 208  Loss: 0.126800  Mean-IoU: 0.071557  Batch-Time:  0:00:01.502783  Epoch-Time:  0:00:32.898044  Total-Time:  0:04:11.374529
-Epoch:  4 / 20  #Images: 224  Loss: 0.136777  Mean-IoU: 0.070834  Batch-Time:  0:00:01.512774  Epoch-Time:  0:00:35.447507  Total-Time:  0:04:13.923991
-Epoch:  4 / 20  #Images: 240  Loss: 0.141965  Mean-IoU: 0.070223  Batch-Time:  0:00:01.502520  Epoch-Time:  0:00:37.994097  Total-Time:  0:04:16.470582
-Epoch:  4 / 20  #Images: 256  Loss: 0.162910  Mean-IoU: 0.069708  Batch-Time:  0:00:01.511141  Epoch-Time:  0:00:40.542070  Total-Time:  0:04:19.018554
-Epoch:  4 / 20  #Images: 272  Loss: 0.119518  Mean-IoU: 0.069052  Batch-Time:  0:00:01.509256  Epoch-Time:  0:00:43.095566  Total-Time:  0:04:21.572051
-Epoch:  4 / 20  #Images: 288  Loss: 0.130440  Mean-IoU: 0.068446  Batch-Time:  0:00:01.512532  Epoch-Time:  0:00:45.644014  Total-Time:  0:04:24.120499
-Epoch:  4 / 20  #Images: 289  Loss: 0.160068  Mean-IoU: 0.068414  Batch-Time:  0:00:00.399136  Epoch-Time:  0:00:46.548631  Total-Time:  0:04:25.025115
-### Epoch:  4 / 20  #Images: 289  Loss: 0.160068  Avg-IoU: 0.074265  Epoch-Time:  0:00:46.548631  Total-Time:  0:04:25.025115
-Saving model after epoch 4...
-Epoch:  5 / 20  #Images:  16  Loss: 0.116182  Mean-IoU: 0.067826  Batch-Time:  0:00:01.769120  Epoch-Time:  0:00:02.352592  Total-Time:  0:04:29.791491
-Epoch:  5 / 20  #Images:  32  Loss: 0.144245  Mean-IoU: 0.067343  Batch-Time:  0:00:01.510728  Epoch-Time:  0:00:04.898110  Total-Time:  0:04:32.337008
-Epoch:  5 / 20  #Images:  48  Loss: 0.151285  Mean-IoU: 0.066856  Batch-Time:  0:00:01.499946  Epoch-Time:  0:00:07.438022  Total-Time:  0:04:34.876921
-Epoch:  5 / 20  #Images:  64  Loss: 0.111488  Mean-IoU: 0.066287  Batch-Time:  0:00:01.506531  Epoch-Time:  0:00:09.981275  Total-Time:  0:04:37.420173
-Epoch:  5 / 20  #Images:  80  Loss: 0.137969  Mean-IoU: 0.065708  Batch-Time:  0:00:01.493815  Epoch-Time:  0:00:12.515743  Total-Time:  0:04:39.954642
-Epoch:  5 / 20  #Images:  96  Loss: 0.121274  Mean-IoU: 0.065247  Batch-Time:  0:00:01.510919  Epoch-Time:  0:00:15.061276  Total-Time:  0:04:42.500175
-Epoch:  5 / 20  #Images: 112  Loss: 0.120577  Mean-IoU: 0.064770  Batch-Time:  0:00:01.500580  Epoch-Time:  0:00:17.604721  Total-Time:  0:04:45.043620
-Epoch:  5 / 20  #Images: 128  Loss: 0.165129  Mean-IoU: 0.064315  Batch-Time:  0:00:01.502885  Epoch-Time:  0:00:20.144926  Total-Time:  0:04:47.583825
-Epoch:  5 / 20  #Images: 144  Loss: 0.121440  Mean-IoU: 0.063837  Batch-Time:  0:00:01.504654  Epoch-Time:  0:00:22.695469  Total-Time:  0:04:50.134367
-Epoch:  5 / 20  #Images: 160  Loss: 0.122054  Mean-IoU: 0.063310  Batch-Time:  0:00:01.510561  Epoch-Time:  0:00:25.245652  Total-Time:  0:04:52.684551
-Epoch:  5 / 20  #Images: 176  Loss: 0.164246  Mean-IoU: 0.062929  Batch-Time:  0:00:01.505830  Epoch-Time:  0:00:27.789384  Total-Time:  0:04:55.228282
-Epoch:  5 / 20  #Images: 192  Loss: 0.116177  Mean-IoU: 0.062437  Batch-Time:  0:00:01.505404  Epoch-Time:  0:00:30.329732  Total-Time:  0:04:57.768631
-Epoch:  5 / 20  #Images: 208  Loss: 0.119667  Mean-IoU: 0.062021  Batch-Time:  0:00:01.502921  Epoch-Time:  0:00:32.876588  Total-Time:  0:05:00.315487
-Epoch:  5 / 20  #Images: 224  Loss: 0.119854  Mean-IoU: 0.061561  Batch-Time:  0:00:01.508276  Epoch-Time:  0:00:35.421840  Total-Time:  0:05:02.860739
-Epoch:  5 / 20  #Images: 240  Loss: 0.101991  Mean-IoU: 0.061048  Batch-Time:  0:00:01.502419  Epoch-Time:  0:00:37.965018  Total-Time:  0:05:05.403917
-Epoch:  5 / 20  #Images: 256  Loss: 0.128438  Mean-IoU: 0.060623  Batch-Time:  0:00:01.514992  Epoch-Time:  0:00:40.515039  Total-Time:  0:05:07.953938
-Epoch:  5 / 20  #Images: 272  Loss: 0.126278  Mean-IoU: 0.060233  Batch-Time:  0:00:01.500274  Epoch-Time:  0:00:43.060238  Total-Time:  0:05:10.499137
-Epoch:  5 / 20  #Images: 288  Loss: 0.109317  Mean-IoU: 0.059782  Batch-Time:  0:00:01.509679  Epoch-Time:  0:00:45.606867  Total-Time:  0:05:13.045766
-Epoch:  5 / 20  #Images: 289  Loss: 0.177865  Mean-IoU: 0.059764  Batch-Time:  0:00:00.398233  Epoch-Time:  0:00:46.513383  Total-Time:  0:05:13.952282
-### Epoch:  5 / 20  #Images: 289  Loss: 0.177865  Avg-IoU: 0.063661  Epoch-Time:  0:00:46.513383  Total-Time:  0:05:13.952282
-Saving model after epoch 5...
-Epoch:  6 / 20  #Images:  16  Loss: 0.120111  Mean-IoU: 0.059421  Batch-Time:  0:00:01.766360  Epoch-Time:  0:00:02.344155  Total-Time:  0:05:18.714309
-Epoch:  6 / 20  #Images:  32  Loss: 0.113971  Mean-IoU: 0.059005  Batch-Time:  0:00:01.508337  Epoch-Time:  0:00:04.890294  Total-Time:  0:05:21.260448
-Epoch:  6 / 20  #Images:  48  Loss: 0.116649  Mean-IoU: 0.058623  Batch-Time:  0:00:01.505381  Epoch-Time:  0:00:07.437081  Total-Time:  0:05:23.807235
-Epoch:  6 / 20  #Images:  64  Loss: 0.094006  Mean-IoU: 0.058196  Batch-Time:  0:00:01.511078  Epoch-Time:  0:00:09.986553  Total-Time:  0:05:26.356707
-Epoch:  6 / 20  #Images:  80  Loss: 0.139505  Mean-IoU: 0.057860  Batch-Time:  0:00:01.498391  Epoch-Time:  0:00:12.529694  Total-Time:  0:05:28.899848
-Epoch:  6 / 20  #Images:  96  Loss: 0.120264  Mean-IoU: 0.057502  Batch-Time:  0:00:01.510909  Epoch-Time:  0:00:15.075881  Total-Time:  0:05:31.446036
-Epoch:  6 / 20  #Images: 112  Loss: 0.113392  Mean-IoU: 0.057160  Batch-Time:  0:00:01.502558  Epoch-Time:  0:00:17.624256  Total-Time:  0:05:33.994410
-Epoch:  6 / 20  #Images: 128  Loss: 0.116021  Mean-IoU: 0.056805  Batch-Time:  0:00:01.511138  Epoch-Time:  0:00:20.171886  Total-Time:  0:05:36.542041
-Epoch:  6 / 20  #Images: 144  Loss: 0.121392  Mean-IoU: 0.056467  Batch-Time:  0:00:01.499605  Epoch-Time:  0:00:22.715606  Total-Time:  0:05:39.085760
-Epoch:  6 / 20  #Images: 160  Loss: 0.113030  Mean-IoU: 0.056130  Batch-Time:  0:00:01.508012  Epoch-Time:  0:00:25.259161  Total-Time:  0:05:41.629316
-Epoch:  6 / 20  #Images: 176  Loss: 0.110486  Mean-IoU: 0.055806  Batch-Time:  0:00:01.502312  Epoch-Time:  0:00:27.804408  Total-Time:  0:05:44.174562
-Epoch:  6 / 20  #Images: 192  Loss: 0.126160  Mean-IoU: 0.055520  Batch-Time:  0:00:01.510647  Epoch-Time:  0:00:30.348619  Total-Time:  0:05:46.718773
-Epoch:  6 / 20  #Images: 208  Loss: 0.102955  Mean-IoU: 0.055171  Batch-Time:  0:00:01.507382  Epoch-Time:  0:00:32.900653  Total-Time:  0:05:49.270807
-Epoch:  6 / 20  #Images: 224  Loss: 0.098673  Mean-IoU: 0.054818  Batch-Time:  0:00:01.512398  Epoch-Time:  0:00:35.449934  Total-Time:  0:05:51.820089
-Epoch:  6 / 20  #Images: 240  Loss: 0.104299  Mean-IoU: 0.054490  Batch-Time:  0:00:01.506311  Epoch-Time:  0:00:37.993869  Total-Time:  0:05:54.364023
-Epoch:  6 / 20  #Images: 256  Loss: 0.112378  Mean-IoU: 0.054163  Batch-Time:  0:00:01.509299  Epoch-Time:  0:00:40.540335  Total-Time:  0:05:56.910490
-Epoch:  6 / 20  #Images: 272  Loss: 0.093429  Mean-IoU: 0.053812  Batch-Time:  0:00:01.505202  Epoch-Time:  0:00:43.091080  Total-Time:  0:05:59.461234
-Epoch:  6 / 20  #Images: 288  Loss: 0.114124  Mean-IoU: 0.053514  Batch-Time:  0:00:01.512337  Epoch-Time:  0:00:45.641994  Total-Time:  0:06:02.012149
-Epoch:  6 / 20  #Images: 289  Loss: 0.073022  Mean-IoU: 0.053489  Batch-Time:  0:00:00.399380  Epoch-Time:  0:00:46.548825  Total-Time:  0:06:02.918979
-### Epoch:  6 / 20  #Images: 289  Loss: 0.073022  Avg-IoU: 0.056349  Epoch-Time:  0:00:46.548825  Total-Time:  0:06:02.918979
-Saving model after epoch 6...
-Epoch:  7 / 20  #Images:  16  Loss: 0.108311  Mean-IoU: 0.053209  Batch-Time:  0:00:01.803187  Epoch-Time:  0:00:02.378721  Total-Time:  0:06:07.937762
-Epoch:  7 / 20  #Images:  32  Loss: 0.104294  Mean-IoU: 0.052902  Batch-Time:  0:00:01.504536  Epoch-Time:  0:00:04.921736  Total-Time:  0:06:10.480777
-Epoch:  7 / 20  #Images:  48  Loss: 0.126278  Mean-IoU: 0.052649  Batch-Time:  0:00:01.502013  Epoch-Time:  0:00:07.463088  Total-Time:  0:06:13.022128
-Epoch:  7 / 20  #Images:  64  Loss: 0.115944  Mean-IoU: 0.052400  Batch-Time:  0:00:01.507733  Epoch-Time:  0:00:10.014582  Total-Time:  0:06:15.573622
-Epoch:  7 / 20  #Images:  80  Loss: 0.098120  Mean-IoU: 0.052098  Batch-Time:  0:00:01.503474  Epoch-Time:  0:00:12.557243  Total-Time:  0:06:18.116283
-Epoch:  7 / 20  #Images:  96  Loss: 0.098433  Mean-IoU: 0.051767  Batch-Time:  0:00:01.506066  Epoch-Time:  0:00:15.100028  Total-Time:  0:06:20.659068
-Epoch:  7 / 20  #Images: 112  Loss: 0.099853  Mean-IoU: 0.051495  Batch-Time:  0:00:01.503337  Epoch-Time:  0:00:17.640777  Total-Time:  0:06:23.199817
-Epoch:  7 / 20  #Images: 128  Loss: 0.089604  Mean-IoU: 0.051207  Batch-Time:  0:00:01.512180  Epoch-Time:  0:00:20.188552  Total-Time:  0:06:25.747592
-Epoch:  7 / 20  #Images: 144  Loss: 0.105726  Mean-IoU: 0.050940  Batch-Time:  0:00:01.498981  Epoch-Time:  0:00:22.732030  Total-Time:  0:06:28.291070
-Epoch:  7 / 20  #Images: 160  Loss: 0.105249  Mean-IoU: 0.050669  Batch-Time:  0:00:01.509037  Epoch-Time:  0:00:25.277835  Total-Time:  0:06:30.836876
-Epoch:  7 / 20  #Images: 176  Loss: 0.096018  Mean-IoU: 0.050408  Batch-Time:  0:00:01.513029  Epoch-Time:  0:00:27.834842  Total-Time:  0:06:33.393882
-Epoch:  7 / 20  #Images: 192  Loss: 0.108089  Mean-IoU: 0.050165  Batch-Time:  0:00:01.507907  Epoch-Time:  0:00:30.381196  Total-Time:  0:06:35.940236
-Epoch:  7 / 20  #Images: 208  Loss: 0.093449  Mean-IoU: 0.049887  Batch-Time:  0:00:01.498952  Epoch-Time:  0:00:32.925565  Total-Time:  0:06:38.484605
-Epoch:  7 / 20  #Images: 224  Loss: 0.078749  Mean-IoU: 0.049620  Batch-Time:  0:00:01.510560  Epoch-Time:  0:00:35.473483  Total-Time:  0:06:41.032524
-Epoch:  7 / 20  #Images: 240  Loss: 0.076951  Mean-IoU: 0.049330  Batch-Time:  0:00:01.498207  Epoch-Time:  0:00:38.018285  Total-Time:  0:06:43.577325
-Epoch:  7 / 20  #Images: 256  Loss: 0.105963  Mean-IoU: 0.049086  Batch-Time:  0:00:01.501648  Epoch-Time:  0:00:40.555285  Total-Time:  0:06:46.114325
-Epoch:  7 / 20  #Images: 272  Loss: 0.084995  Mean-IoU: 0.048812  Batch-Time:  0:00:01.497916  Epoch-Time:  0:00:43.093411  Total-Time:  0:06:48.652451
-Epoch:  7 / 20  #Images: 288  Loss: 0.097895  Mean-IoU: 0.048583  Batch-Time:  0:00:01.511238  Epoch-Time:  0:00:45.642702  Total-Time:  0:06:51.201742
-Epoch:  7 / 20  #Images: 289  Loss: 0.045561  Mean-IoU: 0.048562  Batch-Time:  0:00:00.401880  Epoch-Time:  0:00:46.553089  Total-Time:  0:06:52.112130
-### Epoch:  7 / 20  #Images: 289  Loss: 0.045561  Avg-IoU: 0.050838  Epoch-Time:  0:00:46.553089  Total-Time:  0:06:52.112130
-Saving model after epoch 7...
-Epoch:  8 / 20  #Images:  16  Loss: 0.093080  Mean-IoU: 0.048294  Batch-Time:  0:00:01.708327  Epoch-Time:  0:00:02.291543  Total-Time:  0:06:57.056572
-Epoch:  8 / 20  #Images:  32  Loss: 0.100586  Mean-IoU: 0.048068  Batch-Time:  0:00:01.502640  Epoch-Time:  0:00:04.832696  Total-Time:  0:06:59.597725
-Epoch:  8 / 20  #Images:  48  Loss: 0.093835  Mean-IoU: 0.047861  Batch-Time:  0:00:01.501164  Epoch-Time:  0:00:07.375634  Total-Time:  0:07:02.140663
-Epoch:  8 / 20  #Images:  64  Loss: 0.104540  Mean-IoU: 0.047661  Batch-Time:  0:00:01.508312  Epoch-Time:  0:00:09.918838  Total-Time:  0:07:04.683867
-Epoch:  8 / 20  #Images:  80  Loss: 0.114066  Mean-IoU: 0.047429  Batch-Time:  0:00:01.504878  Epoch-Time:  0:00:12.467815  Total-Time:  0:07:07.232844
-Epoch:  8 / 20  #Images:  96  Loss: 0.083659  Mean-IoU: 0.047197  Batch-Time:  0:00:01.510809  Epoch-Time:  0:00:15.017171  Total-Time:  0:07:09.782200
-Epoch:  8 / 20  #Images: 112  Loss: 0.088918  Mean-IoU: 0.046986  Batch-Time:  0:00:01.505060  Epoch-Time:  0:00:17.563909  Total-Time:  0:07:12.328938
-Epoch:  8 / 20  #Images: 128  Loss: 0.087957  Mean-IoU: 0.046755  Batch-Time:  0:00:01.509770  Epoch-Time:  0:00:20.114616  Total-Time:  0:07:14.879644
-Epoch:  8 / 20  #Images: 144  Loss: 0.093776  Mean-IoU: 0.046512  Batch-Time:  0:00:01.500661  Epoch-Time:  0:00:22.664621  Total-Time:  0:07:17.429649
-Epoch:  8 / 20  #Images: 160  Loss: 0.106151  Mean-IoU: 0.046317  Batch-Time:  0:00:01.506078  Epoch-Time:  0:00:25.207031  Total-Time:  0:07:19.972060
-Epoch:  8 / 20  #Images: 176  Loss: 0.106593  Mean-IoU: 0.046139  Batch-Time:  0:00:01.497735  Epoch-Time:  0:00:27.740539  Total-Time:  0:07:22.505568
-Epoch:  8 / 20  #Images: 192  Loss: 0.099064  Mean-IoU: 0.045925  Batch-Time:  0:00:01.501624  Epoch-Time:  0:00:30.281384  Total-Time:  0:07:25.046412
-Epoch:  8 / 20  #Images: 208  Loss: 0.099729  Mean-IoU: 0.045725  Batch-Time:  0:00:01.498434  Epoch-Time:  0:00:32.820817  Total-Time:  0:07:27.585846
-Epoch:  8 / 20  #Images: 224  Loss: 0.069309  Mean-IoU: 0.045494  Batch-Time:  0:00:01.506367  Epoch-Time:  0:00:35.363683  Total-Time:  0:07:30.128712
-Epoch:  8 / 20  #Images: 240  Loss: 0.112307  Mean-IoU: 0.045318  Batch-Time:  0:00:01.497935  Epoch-Time:  0:00:37.907608  Total-Time:  0:07:32.672637
-Epoch:  8 / 20  #Images: 256  Loss: 0.084423  Mean-IoU: 0.045105  Batch-Time:  0:00:01.508067  Epoch-Time:  0:00:40.457337  Total-Time:  0:07:35.222366
-Epoch:  8 / 20  #Images: 272  Loss: 0.083114  Mean-IoU: 0.044915  Batch-Time:  0:00:01.505428  Epoch-Time:  0:00:43.009874  Total-Time:  0:07:37.774903
-Epoch:  8 / 20  #Images: 288  Loss: 0.091138  Mean-IoU: 0.044738  Batch-Time:  0:00:01.505476  Epoch-Time:  0:00:45.554319  Total-Time:  0:07:40.319347
-Epoch:  8 / 20  #Images: 289  Loss: 0.147619  Mean-IoU: 0.044724  Batch-Time:  0:00:00.399755  Epoch-Time:  0:00:46.462154  Total-Time:  0:07:41.227182
-### Epoch:  8 / 20  #Images: 289  Loss: 0.147619  Avg-IoU: 0.046463  Epoch-Time:  0:00:46.462154  Total-Time:  0:07:41.227182
-Saving model after epoch 8...
-Epoch:  9 / 20  #Images:  16  Loss: 0.083478  Mean-IoU: 0.044556  Batch-Time:  0:00:01.752817  Epoch-Time:  0:00:02.332610  Total-Time:  0:07:46.181844
-Epoch:  9 / 20  #Images:  32  Loss: 0.091714  Mean-IoU: 0.044387  Batch-Time:  0:00:01.498858  Epoch-Time:  0:00:04.866337  Total-Time:  0:07:48.715571
-Epoch:  9 / 20  #Images:  48  Loss: 0.101148  Mean-IoU: 0.044193  Batch-Time:  0:00:01.503129  Epoch-Time:  0:00:07.411484  Total-Time:  0:07:51.260718
-Epoch:  9 / 20  #Images:  64  Loss: 0.094965  Mean-IoU: 0.044016  Batch-Time:  0:00:01.512384  Epoch-Time:  0:00:09.961147  Total-Time:  0:07:53.810381
-Epoch:  9 / 20  #Images:  80  Loss: 0.085407  Mean-IoU: 0.043842  Batch-Time:  0:00:01.502264  Epoch-Time:  0:00:12.505041  Total-Time:  0:07:56.354275
-Epoch:  9 / 20  #Images:  96  Loss: 0.081935  Mean-IoU: 0.043670  Batch-Time:  0:00:01.504751  Epoch-Time:  0:00:15.040246  Total-Time:  0:07:58.889480
-Epoch:  9 / 20  #Images: 112  Loss: 0.105828  Mean-IoU: 0.043515  Batch-Time:  0:00:01.502073  Epoch-Time:  0:00:17.583859  Total-Time:  0:08:01.433093
-Epoch:  9 / 20  #Images: 128  Loss: 0.092419  Mean-IoU: 0.043342  Batch-Time:  0:00:01.504272  Epoch-Time:  0:00:20.136427  Total-Time:  0:08:03.985661
-Epoch:  9 / 20  #Images: 144  Loss: 0.091217  Mean-IoU: 0.043158  Batch-Time:  0:00:01.491375  Epoch-Time:  0:00:22.672365  Total-Time:  0:08:06.521599
-Epoch:  9 / 20  #Images: 160  Loss: 0.103581  Mean-IoU: 0.043008  Batch-Time:  0:00:01.503485  Epoch-Time:  0:00:25.214610  Total-Time:  0:08:09.063844
-Epoch:  9 / 20  #Images: 176  Loss: 0.103748  Mean-IoU: 0.042854  Batch-Time:  0:00:01.495293  Epoch-Time:  0:00:27.750131  Total-Time:  0:08:11.599365
-Epoch:  9 / 20  #Images: 192  Loss: 0.091963  Mean-IoU: 0.042681  Batch-Time:  0:00:01.502476  Epoch-Time:  0:00:30.286197  Total-Time:  0:08:14.135431
-Epoch:  9 / 20  #Images: 208  Loss: 0.075425  Mean-IoU: 0.042501  Batch-Time:  0:00:01.509008  Epoch-Time:  0:00:32.839402  Total-Time:  0:08:16.688636
-Epoch:  9 / 20  #Images: 224  Loss: 0.077488  Mean-IoU: 0.042321  Batch-Time:  0:00:01.511626  Epoch-Time:  0:00:35.400778  Total-Time:  0:08:19.250012
-Epoch:  9 / 20  #Images: 240  Loss: 0.117555  Mean-IoU: 0.042212  Batch-Time:  0:00:01.508192  Epoch-Time:  0:00:37.953727  Total-Time:  0:08:21.802961
-Epoch:  9 / 20  #Images: 256  Loss: 0.094133  Mean-IoU: 0.042059  Batch-Time:  0:00:01.510864  Epoch-Time:  0:00:40.502511  Total-Time:  0:08:24.351745
-Epoch:  9 / 20  #Images: 272  Loss: 0.088433  Mean-IoU: 0.041906  Batch-Time:  0:00:01.506653  Epoch-Time:  0:00:43.051602  Total-Time:  0:08:26.900836
-Epoch:  9 / 20  #Images: 288  Loss: 0.076332  Mean-IoU: 0.041732  Batch-Time:  0:00:01.503600  Epoch-Time:  0:00:45.593462  Total-Time:  0:08:29.442696
-Epoch:  9 / 20  #Images: 289  Loss: 0.041001  Mean-IoU: 0.041717  Batch-Time:  0:00:00.399715  Epoch-Time:  0:00:46.500099  Total-Time:  0:08:30.349333
-### Epoch:  9 / 20  #Images: 289  Loss: 0.041001  Avg-IoU: 0.043104  Epoch-Time:  0:00:46.500099  Total-Time:  0:08:30.349333
-Saving model after epoch 9...
-Epoch: 10 / 20  #Images:  16  Loss: 0.077034  Mean-IoU: 0.041555  Batch-Time:  0:00:01.797370  Epoch-Time:  0:00:02.374887  Total-Time:  0:08:35.371475
-Epoch: 10 / 20  #Images:  32  Loss: 0.106142  Mean-IoU: 0.041417  Batch-Time:  0:00:01.490268  Epoch-Time:  0:00:04.898102  Total-Time:  0:08:37.894690
-Epoch: 10 / 20  #Images:  48  Loss: 0.077219  Mean-IoU: 0.041241  Batch-Time:  0:00:01.489431  Epoch-Time:  0:00:07.425427  Total-Time:  0:08:40.422014
-Epoch: 10 / 20  #Images:  64  Loss: 0.086019  Mean-IoU: 0.041082  Batch-Time:  0:00:01.495894  Epoch-Time:  0:00:09.956619  Total-Time:  0:08:42.953207
-Epoch: 10 / 20  #Images:  80  Loss: 0.072178  Mean-IoU: 0.040917  Batch-Time:  0:00:01.497407  Epoch-Time:  0:00:12.494339  Total-Time:  0:08:45.490927
-Epoch: 10 / 20  #Images:  96  Loss: 0.098170  Mean-IoU: 0.040792  Batch-Time:  0:00:01.505270  Epoch-Time:  0:00:15.032576  Total-Time:  0:08:48.029164
-Epoch: 10 / 20  #Images: 112  Loss: 0.077420  Mean-IoU: 0.040635  Batch-Time:  0:00:01.500023  Epoch-Time:  0:00:17.579455  Total-Time:  0:08:50.576043
-Epoch: 10 / 20  #Images: 128  Loss: 0.094422  Mean-IoU: 0.040509  Batch-Time:  0:00:01.511965  Epoch-Time:  0:00:20.130144  Total-Time:  0:08:53.126732
-Epoch: 10 / 20  #Images: 144  Loss: 0.077091  Mean-IoU: 0.040358  Batch-Time:  0:00:01.503325  Epoch-Time:  0:00:22.676181  Total-Time:  0:08:55.672769
-Epoch: 10 / 20  #Images: 160  Loss: 0.083012  Mean-IoU: 0.040217  Batch-Time:  0:00:01.507214  Epoch-Time:  0:00:25.223044  Total-Time:  0:08:58.219632
-Epoch: 10 / 20  #Images: 176  Loss: 0.082758  Mean-IoU: 0.040071  Batch-Time:  0:00:01.499646  Epoch-Time:  0:00:27.763983  Total-Time:  0:09:00.760570
-Epoch: 10 / 20  #Images: 192  Loss: 0.075336  Mean-IoU: 0.039922  Batch-Time:  0:00:01.513230  Epoch-Time:  0:00:30.313112  Total-Time:  0:09:03.309700
-Epoch: 10 / 20  #Images: 208  Loss: 0.070444  Mean-IoU: 0.039776  Batch-Time:  0:00:01.496519  Epoch-Time:  0:00:32.846541  Total-Time:  0:09:05.843128
-Epoch: 10 / 20  #Images: 224  Loss: 0.070765  Mean-IoU: 0.039629  Batch-Time:  0:00:01.502645  Epoch-Time:  0:00:35.383019  Total-Time:  0:09:08.379607
-Epoch: 10 / 20  #Images: 240  Loss: 0.089426  Mean-IoU: 0.039503  Batch-Time:  0:00:01.495221  Epoch-Time:  0:00:37.921212  Total-Time:  0:09:10.917800
-Epoch: 10 / 20  #Images: 256  Loss: 0.088123  Mean-IoU: 0.039377  Batch-Time:  0:00:01.500382  Epoch-Time:  0:00:40.467131  Total-Time:  0:09:13.463719
-Epoch: 10 / 20  #Images: 272  Loss: 0.067237  Mean-IoU: 0.039231  Batch-Time:  0:00:01.497534  Epoch-Time:  0:00:43.008484  Total-Time:  0:09:16.005072
-Epoch: 10 / 20  #Images: 288  Loss: 0.066206  Mean-IoU: 0.039082  Batch-Time:  0:00:01.504036  Epoch-Time:  0:00:45.552287  Total-Time:  0:09:18.548875
-Epoch: 10 / 20  #Images: 289  Loss: 0.060983  Mean-IoU: 0.039073  Batch-Time:  0:00:00.395250  Epoch-Time:  0:00:46.451972  Total-Time:  0:09:19.448559
-### Epoch: 10 / 20  #Images: 289  Loss: 0.060983  Avg-IoU: 0.040291  Epoch-Time:  0:00:46.451972  Total-Time:  0:09:19.448559
-Saving model after epoch 10...
-Epoch: 11 / 20  #Images:  16  Loss: 0.062379  Mean-IoU: 0.038920  Batch-Time:  0:00:01.789944  Epoch-Time:  0:00:02.369446  Total-Time:  0:09:24.482005
-Epoch: 11 / 20  #Images:  32  Loss: 0.071259  Mean-IoU: 0.038776  Batch-Time:  0:00:01.501126  Epoch-Time:  0:00:04.905705  Total-Time:  0:09:27.018265
-Epoch: 11 / 20  #Images:  48  Loss: 0.061196  Mean-IoU: 0.038625  Batch-Time:  0:00:01.501105  Epoch-Time:  0:00:07.448962  Total-Time:  0:09:29.561521
-Epoch: 11 / 20  #Images:  64  Loss: 0.074902  Mean-IoU: 0.038493  Batch-Time:  0:00:01.512551  Epoch-Time:  0:00:09.998342  Total-Time:  0:09:32.110902
-Epoch: 11 / 20  #Images:  80  Loss: 0.074401  Mean-IoU: 0.038365  Batch-Time:  0:00:01.503654  Epoch-Time:  0:00:12.546868  Total-Time:  0:09:34.659428
-Epoch: 11 / 20  #Images:  96  Loss: 0.069569  Mean-IoU: 0.038232  Batch-Time:  0:00:01.510603  Epoch-Time:  0:00:15.096567  Total-Time:  0:09:37.209126
-Epoch: 11 / 20  #Images: 112  Loss: 0.094847  Mean-IoU: 0.038130  Batch-Time:  0:00:01.497792  Epoch-Time:  0:00:17.635681  Total-Time:  0:09:39.748240
-Epoch: 11 / 20  #Images: 128  Loss: 0.072974  Mean-IoU: 0.038004  Batch-Time:  0:00:01.497387  Epoch-Time:  0:00:20.167262  Total-Time:  0:09:42.279822
-Epoch: 11 / 20  #Images: 144  Loss: 0.073957  Mean-IoU: 0.037874  Batch-Time:  0:00:01.497121  Epoch-Time:  0:00:22.701612  Total-Time:  0:09:44.814172
-Epoch: 11 / 20  #Images: 160  Loss: 0.067100  Mean-IoU: 0.037745  Batch-Time:  0:00:01.503397  Epoch-Time:  0:00:25.240543  Total-Time:  0:09:47.353102
-Epoch: 11 / 20  #Images: 176  Loss: 0.042884  Mean-IoU: 0.037586  Batch-Time:  0:00:01.495927  Epoch-Time:  0:00:27.777038  Total-Time:  0:09:49.889597
-Epoch: 11 / 20  #Images: 192  Loss: 0.078823  Mean-IoU: 0.037458  Batch-Time:  0:00:01.505021  Epoch-Time:  0:00:30.316021  Total-Time:  0:09:52.428581
-Epoch: 11 / 20  #Images: 208  Loss: 0.075888  Mean-IoU: 0.037341  Batch-Time:  0:00:01.497314  Epoch-Time:  0:00:32.871408  Total-Time:  0:09:54.983968
-Epoch: 11 / 20  #Images: 224  Loss: 0.055708  Mean-IoU: 0.037203  Batch-Time:  0:00:01.503060  Epoch-Time:  0:00:35.417687  Total-Time:  0:09:57.530246
-Epoch: 11 / 20  #Images: 240  Loss: 0.069310  Mean-IoU: 0.037078  Batch-Time:  0:00:01.502349  Epoch-Time:  0:00:37.971242  Total-Time:  0:10:00.083802
-Epoch: 11 / 20  #Images: 256  Loss: 0.061280  Mean-IoU: 0.036948  Batch-Time:  0:00:01.502623  Epoch-Time:  0:00:40.516876  Total-Time:  0:10:02.629436
-Epoch: 11 / 20  #Images: 272  Loss: 0.075852  Mean-IoU: 0.036833  Batch-Time:  0:00:01.503509  Epoch-Time:  0:00:43.079901  Total-Time:  0:10:05.192461
-Epoch: 11 / 20  #Images: 288  Loss: 0.064667  Mean-IoU: 0.036710  Batch-Time:  0:00:01.503422  Epoch-Time:  0:00:45.631804  Total-Time:  0:10:07.744364
-Epoch: 11 / 20  #Images: 289  Loss: 0.054959  Mean-IoU: 0.036701  Batch-Time:  0:00:00.401532  Epoch-Time:  0:00:46.538541  Total-Time:  0:10:08.651101
-### Epoch: 11 / 20  #Images: 289  Loss: 0.054959  Avg-IoU: 0.037792  Epoch-Time:  0:00:46.538541  Total-Time:  0:10:08.651101
-Saving model after epoch 11...
-Epoch: 12 / 20  #Images:  16  Loss: 0.069393  Mean-IoU: 0.036584  Batch-Time:  0:00:01.761893  Epoch-Time:  0:00:02.339380  Total-Time:  0:10:13.658279
-Epoch: 12 / 20  #Images:  32  Loss: 0.078125  Mean-IoU: 0.036479  Batch-Time:  0:00:01.497411  Epoch-Time:  0:00:04.870170  Total-Time:  0:10:16.189069
-Epoch: 12 / 20  #Images:  48  Loss: 0.059957  Mean-IoU: 0.036354  Batch-Time:  0:00:01.499439  Epoch-Time:  0:00:07.415631  Total-Time:  0:10:18.734530
-Epoch: 12 / 20  #Images:  64  Loss: 0.069652  Mean-IoU: 0.036239  Batch-Time:  0:00:01.500764  Epoch-Time:  0:00:09.951786  Total-Time:  0:10:21.270685
-Epoch: 12 / 20  #Images:  80  Loss: 0.081197  Mean-IoU: 0.036133  Batch-Time:  0:00:01.495749  Epoch-Time:  0:00:12.488706  Total-Time:  0:10:23.807606
-Epoch: 12 / 20  #Images:  96  Loss: 0.051014  Mean-IoU: 0.036007  Batch-Time:  0:00:01.504392  Epoch-Time:  0:00:15.030034  Total-Time:  0:10:26.348933
-Epoch: 12 / 20  #Images: 112  Loss: 0.065330  Mean-IoU: 0.035891  Batch-Time:  0:00:01.499963  Epoch-Time:  0:00:17.570311  Total-Time:  0:10:28.889210
-Epoch: 12 / 20  #Images: 128  Loss: 0.061996  Mean-IoU: 0.035773  Batch-Time:  0:00:01.504482  Epoch-Time:  0:00:20.109263  Total-Time:  0:10:31.428162
-Epoch: 12 / 20  #Images: 144  Loss: 0.079187  Mean-IoU: 0.035668  Batch-Time:  0:00:01.494143  Epoch-Time:  0:00:22.643067  Total-Time:  0:10:33.961967
-Epoch: 12 / 20  #Images: 160  Loss: 0.057121  Mean-IoU: 0.035548  Batch-Time:  0:00:01.503738  Epoch-Time:  0:00:25.190279  Total-Time:  0:10:36.509178
-Epoch: 12 / 20  #Images: 176  Loss: 0.073809  Mean-IoU: 0.035446  Batch-Time:  0:00:01.500622  Epoch-Time:  0:00:27.731896  Total-Time:  0:10:39.050795
-Epoch: 12 / 20  #Images: 192  Loss: 0.081739  Mean-IoU: 0.035349  Batch-Time:  0:00:01.504322  Epoch-Time:  0:00:30.271875  Total-Time:  0:10:41.590774
-Epoch: 12 / 20  #Images: 208  Loss: 0.061805  Mean-IoU: 0.035233  Batch-Time:  0:00:01.491025  Epoch-Time:  0:00:32.806047  Total-Time:  0:10:44.124946
-Epoch: 12 / 20  #Images: 224  Loss: 0.055261  Mean-IoU: 0.035114  Batch-Time:  0:00:01.501262  Epoch-Time:  0:00:35.342668  Total-Time:  0:10:46.661567
-Epoch: 12 / 20  #Images: 240  Loss: 0.074332  Mean-IoU: 0.035025  Batch-Time:  0:00:01.501385  Epoch-Time:  0:00:37.883766  Total-Time:  0:10:49.202666
-Epoch: 12 / 20  #Images: 256  Loss: 0.067268  Mean-IoU: 0.034915  Batch-Time:  0:00:01.495247  Epoch-Time:  0:00:40.418311  Total-Time:  0:10:51.737210
-Epoch: 12 / 20  #Images: 272  Loss: 0.069758  Mean-IoU: 0.034807  Batch-Time:  0:00:01.488123  Epoch-Time:  0:00:42.950750  Total-Time:  0:10:54.269650
-Epoch: 12 / 20  #Images: 288  Loss: 0.051852  Mean-IoU: 0.034693  Batch-Time:  0:00:01.502169  Epoch-Time:  0:00:45.493832  Total-Time:  0:10:56.812731
-Epoch: 12 / 20  #Images: 289  Loss: 0.063779  Mean-IoU: 0.034685  Batch-Time:  0:00:00.402225  Epoch-Time:  0:00:46.402314  Total-Time:  0:10:57.721214
-### Epoch: 12 / 20  #Images: 289  Loss: 0.063779  Avg-IoU: 0.035622  Epoch-Time:  0:00:46.402314  Total-Time:  0:10:57.721214
-Saving model after epoch 12...
-Epoch: 13 / 20  #Images:  16  Loss: 0.073455  Mean-IoU: 0.034589  Batch-Time:  0:00:01.753723  Epoch-Time:  0:00:02.329772  Total-Time:  0:11:02.716739
-Epoch: 13 / 20  #Images:  32  Loss: 0.057681  Mean-IoU: 0.034479  Batch-Time:  0:00:01.509958  Epoch-Time:  0:00:04.873352  Total-Time:  0:11:05.260319
-Epoch: 13 / 20  #Images:  48  Loss: 0.064411  Mean-IoU: 0.034379  Batch-Time:  0:00:01.497169  Epoch-Time:  0:00:07.414655  Total-Time:  0:11:07.801622
-Epoch: 13 / 20  #Images:  64  Loss: 0.073239  Mean-IoU: 0.034281  Batch-Time:  0:00:01.499760  Epoch-Time:  0:00:09.960225  Total-Time:  0:11:10.347192
-Epoch: 13 / 20  #Images:  80  Loss: 0.061815  Mean-IoU: 0.034179  Batch-Time:  0:00:01.497881  Epoch-Time:  0:00:12.500215  Total-Time:  0:11:12.887181
-Epoch: 13 / 20  #Images:  96  Loss: 0.080361  Mean-IoU: 0.034090  Batch-Time:  0:00:01.506640  Epoch-Time:  0:00:15.041156  Total-Time:  0:11:15.428123
-Epoch: 13 / 20  #Images: 112  Loss: 0.053250  Mean-IoU: 0.033982  Batch-Time:  0:00:01.497672  Epoch-Time:  0:00:17.581502  Total-Time:  0:11:17.968469
-Epoch: 13 / 20  #Images: 128  Loss: 0.052546  Mean-IoU: 0.033876  Batch-Time:  0:00:01.501966  Epoch-Time:  0:00:20.118893  Total-Time:  0:11:20.505860
-Epoch: 13 / 20  #Images: 144  Loss: 0.072703  Mean-IoU: 0.033788  Batch-Time:  0:00:01.493921  Epoch-Time:  0:00:22.658471  Total-Time:  0:11:23.045437
-Epoch: 13 / 20  #Images: 160  Loss: 0.051682  Mean-IoU: 0.033681  Batch-Time:  0:00:01.501080  Epoch-Time:  0:00:25.193653  Total-Time:  0:11:25.580619
-Epoch: 13 / 20  #Images: 176  Loss: 0.080641  Mean-IoU: 0.033595  Batch-Time:  0:00:01.497632  Epoch-Time:  0:00:27.733557  Total-Time:  0:11:28.120523
-Epoch: 13 / 20  #Images: 192  Loss: 0.065054  Mean-IoU: 0.033507  Batch-Time:  0:00:01.500344  Epoch-Time:  0:00:30.271146  Total-Time:  0:11:30.658112
-Epoch: 13 / 20  #Images: 208  Loss: 0.066233  Mean-IoU: 0.033414  Batch-Time:  0:00:01.499331  Epoch-Time:  0:00:32.820558  Total-Time:  0:11:33.207524
-Epoch: 13 / 20  #Images: 224  Loss: 0.054866  Mean-IoU: 0.033317  Batch-Time:  0:00:01.502432  Epoch-Time:  0:00:35.358880  Total-Time:  0:11:35.745847
-Epoch: 13 / 20  #Images: 240  Loss: 0.061863  Mean-IoU: 0.033224  Batch-Time:  0:00:01.500084  Epoch-Time:  0:00:37.904392  Total-Time:  0:11:38.291359
-Epoch: 13 / 20  #Images: 256  Loss: 0.052996  Mean-IoU: 0.033124  Batch-Time:  0:00:01.505374  Epoch-Time:  0:00:40.451648  Total-Time:  0:11:40.838614
-Epoch: 13 / 20  #Images: 272  Loss: 0.057166  Mean-IoU: 0.033032  Batch-Time:  0:00:01.492141  Epoch-Time:  0:00:42.980880  Total-Time:  0:11:43.367846
-Epoch: 13 / 20  #Images: 288  Loss: 0.065907  Mean-IoU: 0.032950  Batch-Time:  0:00:01.495340  Epoch-Time:  0:00:45.513913  Total-Time:  0:11:45.900879
-Epoch: 13 / 20  #Images: 289  Loss: 0.102744  Mean-IoU: 0.032943  Batch-Time:  0:00:00.399007  Epoch-Time:  0:00:46.419848  Total-Time:  0:11:46.806815
-### Epoch: 13 / 20  #Images: 289  Loss: 0.102744  Avg-IoU: 0.033746  Epoch-Time:  0:00:46.419848  Total-Time:  0:11:46.806815
-Saving model after epoch 13...
-Epoch: 14 / 20  #Images:  16  Loss: 0.062753  Mean-IoU: 0.032868  Batch-Time:  0:00:01.515274  Epoch-Time:  0:00:02.090344  Total-Time:  0:11:51.537572
-Epoch: 14 / 20  #Images:  32  Loss: 0.084542  Mean-IoU: 0.032789  Batch-Time:  0:00:01.495729  Epoch-Time:  0:00:04.619912  Total-Time:  0:11:54.067140
-Epoch: 14 / 20  #Images:  48  Loss: 0.047431  Mean-IoU: 0.032689  Batch-Time:  0:00:01.494374  Epoch-Time:  0:00:07.156861  Total-Time:  0:11:56.604089
-Epoch: 14 / 20  #Images:  64  Loss: 0.064283  Mean-IoU: 0.032606  Batch-Time:  0:00:01.506935  Epoch-Time:  0:00:09.695232  Total-Time:  0:11:59.142460
-Epoch: 14 / 20  #Images:  80  Loss: 0.076461  Mean-IoU: 0.032536  Batch-Time:  0:00:01.501003  Epoch-Time:  0:00:12.233883  Total-Time:  0:12:01.681111
-Epoch: 14 / 20  #Images:  96  Loss: 0.075745  Mean-IoU: 0.032460  Batch-Time:  0:00:01.505054  Epoch-Time:  0:00:14.770513  Total-Time:  0:12:04.217741
-Epoch: 14 / 20  #Images: 112  Loss: 0.077631  Mean-IoU: 0.032379  Batch-Time:  0:00:01.493070  Epoch-Time:  0:00:17.305689  Total-Time:  0:12:06.752917
-Epoch: 14 / 20  #Images: 128  Loss: 0.069685  Mean-IoU: 0.032298  Batch-Time:  0:00:01.500622  Epoch-Time:  0:00:19.842271  Total-Time:  0:12:09.289499
-Epoch: 14 / 20  #Images: 144  Loss: 0.074331  Mean-IoU: 0.032223  Batch-Time:  0:00:01.495409  Epoch-Time:  0:00:22.375588  Total-Time:  0:12:11.822816
-Epoch: 14 / 20  #Images: 160  Loss: 0.086207  Mean-IoU: 0.032152  Batch-Time:  0:00:01.499363  Epoch-Time:  0:00:24.909922  Total-Time:  0:12:14.357150
-Epoch: 14 / 20  #Images: 176  Loss: 0.069897  Mean-IoU: 0.032068  Batch-Time:  0:00:01.497941  Epoch-Time:  0:00:27.448705  Total-Time:  0:12:16.895933
-Epoch: 14 / 20  #Images: 192  Loss: 0.081934  Mean-IoU: 0.031999  Batch-Time:  0:00:01.497039  Epoch-Time:  0:00:29.982630  Total-Time:  0:12:19.429858
-Epoch: 14 / 20  #Images: 208  Loss: 0.066812  Mean-IoU: 0.031932  Batch-Time:  0:00:01.495993  Epoch-Time:  0:00:32.528365  Total-Time:  0:12:21.975593
-Epoch: 14 / 20  #Images: 224  Loss: 0.070362  Mean-IoU: 0.031860  Batch-Time:  0:00:01.503542  Epoch-Time:  0:00:35.077264  Total-Time:  0:12:24.524492
-Epoch: 14 / 20  #Images: 240  Loss: 0.087468  Mean-IoU: 0.031793  Batch-Time:  0:00:01.498130  Epoch-Time:  0:00:37.615950  Total-Time:  0:12:27.063178
-Epoch: 14 / 20  #Images: 256  Loss: 0.065686  Mean-IoU: 0.031713  Batch-Time:  0:00:01.504699  Epoch-Time:  0:00:40.148691  Total-Time:  0:12:29.595919
-Epoch: 14 / 20  #Images: 272  Loss: 0.065175  Mean-IoU: 0.031643  Batch-Time:  0:00:01.501377  Epoch-Time:  0:00:42.693508  Total-Time:  0:12:32.140736
-Epoch: 14 / 20  #Images: 288  Loss: 0.070458  Mean-IoU: 0.031575  Batch-Time:  0:00:01.505110  Epoch-Time:  0:00:45.235701  Total-Time:  0:12:34.682929
-Epoch: 14 / 20  #Images: 289  Loss: 0.029203  Mean-IoU: 0.031568  Batch-Time:  0:00:00.395958  Epoch-Time:  0:00:46.142362  Total-Time:  0:12:35.589590
-### Epoch: 14 / 20  #Images: 289  Loss: 0.029203  Avg-IoU: 0.032197  Epoch-Time:  0:00:46.142362  Total-Time:  0:12:35.589590
-Saving model after epoch 14...
-Epoch: 15 / 20  #Images:  16  Loss: 0.069664  Mean-IoU: 0.031487  Batch-Time:  0:00:01.746118  Epoch-Time:  0:00:02.322726  Total-Time:  0:12:40.567923
-Epoch: 15 / 20  #Images:  32  Loss: 0.054908  Mean-IoU: 0.031406  Batch-Time:  0:00:01.497693  Epoch-Time:  0:00:04.860267  Total-Time:  0:12:43.105464
-Epoch: 15 / 20  #Images:  48  Loss: 0.059371  Mean-IoU: 0.031333  Batch-Time:  0:00:01.490441  Epoch-Time:  0:00:07.386420  Total-Time:  0:12:45.631616
-Epoch: 15 / 20  #Images:  64  Loss: 0.077512  Mean-IoU: 0.031267  Batch-Time:  0:00:01.496538  Epoch-Time:  0:00:09.918365  Total-Time:  0:12:48.163561
-Epoch: 15 / 20  #Images:  80  Loss: 0.067010  Mean-IoU: 0.031194  Batch-Time:  0:00:01.495144  Epoch-Time:  0:00:12.456604  Total-Time:  0:12:50.701800
-Epoch: 15 / 20  #Images:  96  Loss: 0.053545  Mean-IoU: 0.031109  Batch-Time:  0:00:01.497650  Epoch-Time:  0:00:14.988558  Total-Time:  0:12:53.233754
-Epoch: 15 / 20  #Images: 112  Loss: 0.065325  Mean-IoU: 0.031035  Batch-Time:  0:00:01.494007  Epoch-Time:  0:00:17.522510  Total-Time:  0:12:55.767707
-Epoch: 15 / 20  #Images: 128  Loss: 0.057697  Mean-IoU: 0.030963  Batch-Time:  0:00:01.500612  Epoch-Time:  0:00:20.059889  Total-Time:  0:12:58.305086
-Epoch: 15 / 20  #Images: 144  Loss: 0.062763  Mean-IoU: 0.030893  Batch-Time:  0:00:01.496272  Epoch-Time:  0:00:22.596533  Total-Time:  0:13:00.841729
-Epoch: 15 / 20  #Images: 160  Loss: 0.057804  Mean-IoU: 0.030817  Batch-Time:  0:00:01.504397  Epoch-Time:  0:00:25.138671  Total-Time:  0:13:03.383867
-Epoch: 15 / 20  #Images: 176  Loss: 0.062212  Mean-IoU: 0.030744  Batch-Time:  0:00:01.497052  Epoch-Time:  0:00:27.681040  Total-Time:  0:13:05.926237
-Epoch: 15 / 20  #Images: 192  Loss: 0.059615  Mean-IoU: 0.030670  Batch-Time:  0:00:01.505692  Epoch-Time:  0:00:30.222978  Total-Time:  0:13:08.468174
-Epoch: 15 / 20  #Images: 208  Loss: 0.065355  Mean-IoU: 0.030601  Batch-Time:  0:00:01.496308  Epoch-Time:  0:00:32.766148  Total-Time:  0:13:11.011344
-Epoch: 15 / 20  #Images: 224  Loss: 0.048197  Mean-IoU: 0.030523  Batch-Time:  0:00:01.507344  Epoch-Time:  0:00:35.316151  Total-Time:  0:13:13.561347
-Epoch: 15 / 20  #Images: 240  Loss: 0.062902  Mean-IoU: 0.030458  Batch-Time:  0:00:01.487989  Epoch-Time:  0:00:37.849369  Total-Time:  0:13:16.094566
-Epoch: 15 / 20  #Images: 256  Loss: 0.055389  Mean-IoU: 0.030382  Batch-Time:  0:00:01.501854  Epoch-Time:  0:00:40.389305  Total-Time:  0:13:18.634501
-Epoch: 15 / 20  #Images: 272  Loss: 0.062811  Mean-IoU: 0.030317  Batch-Time:  0:00:01.489803  Epoch-Time:  0:00:42.918895  Total-Time:  0:13:21.164091
-Epoch: 15 / 20  #Images: 288  Loss: 0.048389  Mean-IoU: 0.030240  Batch-Time:  0:00:01.500730  Epoch-Time:  0:00:45.455346  Total-Time:  0:13:23.700542
-Epoch: 15 / 20  #Images: 289  Loss: 0.072825  Mean-IoU: 0.030236  Batch-Time:  0:00:00.398472  Epoch-Time:  0:00:46.363004  Total-Time:  0:13:24.608201
-### Epoch: 15 / 20  #Images: 289  Loss: 0.072825  Avg-IoU: 0.030856  Epoch-Time:  0:00:46.363004  Total-Time:  0:13:24.608201
-Saving model after epoch 15...
-Epoch: 16 / 20  #Images:  16  Loss: 0.058059  Mean-IoU: 0.030163  Batch-Time:  0:00:01.784456  Epoch-Time:  0:00:02.362025  Total-Time:  0:13:29.605095
-Epoch: 16 / 20  #Images:  32  Loss: 0.071735  Mean-IoU: 0.030105  Batch-Time:  0:00:01.506048  Epoch-Time:  0:00:04.903128  Total-Time:  0:13:32.146198
-Epoch: 16 / 20  #Images:  48  Loss: 0.058708  Mean-IoU: 0.030038  Batch-Time:  0:00:01.495934  Epoch-Time:  0:00:07.436115  Total-Time:  0:13:34.679185
-Epoch: 16 / 20  #Images:  64  Loss: 0.064022  Mean-IoU: 0.029968  Batch-Time:  0:00:01.502429  Epoch-Time:  0:00:09.976361  Total-Time:  0:13:37.219430
-Epoch: 16 / 20  #Images:  80  Loss: 0.051743  Mean-IoU: 0.029892  Batch-Time:  0:00:01.495636  Epoch-Time:  0:00:12.512516  Total-Time:  0:13:39.755586
-Epoch: 16 / 20  #Images:  96  Loss: 0.059760  Mean-IoU: 0.029825  Batch-Time:  0:00:01.507220  Epoch-Time:  0:00:15.054511  Total-Time:  0:13:42.297581
-Epoch: 16 / 20  #Images: 112  Loss: 0.051214  Mean-IoU: 0.029753  Batch-Time:  0:00:01.496512  Epoch-Time:  0:00:17.592802  Total-Time:  0:13:44.835872
-Epoch: 16 / 20  #Images: 128  Loss: 0.053260  Mean-IoU: 0.029683  Batch-Time:  0:00:01.503902  Epoch-Time:  0:00:20.133221  Total-Time:  0:13:47.376291
-Epoch: 16 / 20  #Images: 144  Loss: 0.060951  Mean-IoU: 0.029622  Batch-Time:  0:00:01.493391  Epoch-Time:  0:00:22.671392  Total-Time:  0:13:49.914462
-Epoch: 16 / 20  #Images: 160  Loss: 0.060588  Mean-IoU: 0.029555  Batch-Time:  0:00:01.494508  Epoch-Time:  0:00:25.201695  Total-Time:  0:13:52.444765
-Epoch: 16 / 20  #Images: 176  Loss: 0.040637  Mean-IoU: 0.029481  Batch-Time:  0:00:01.494134  Epoch-Time:  0:00:27.739247  Total-Time:  0:13:54.982317
-Epoch: 16 / 20  #Images: 192  Loss: 0.047569  Mean-IoU: 0.029411  Batch-Time:  0:00:01.496666  Epoch-Time:  0:00:30.278084  Total-Time:  0:13:57.521154
-Epoch: 16 / 20  #Images: 208  Loss: 0.057839  Mean-IoU: 0.029348  Batch-Time:  0:00:01.498538  Epoch-Time:  0:00:32.824095  Total-Time:  0:14:00.067165
-Epoch: 16 / 20  #Images: 224  Loss: 0.053684  Mean-IoU: 0.029279  Batch-Time:  0:00:01.498052  Epoch-Time:  0:00:35.358525  Total-Time:  0:14:02.601595
-Epoch: 16 / 20  #Images: 240  Loss: 0.058183  Mean-IoU: 0.029218  Batch-Time:  0:00:01.491713  Epoch-Time:  0:00:37.896978  Total-Time:  0:14:05.140048
-Epoch: 16 / 20  #Images: 256  Loss: 0.059586  Mean-IoU: 0.029153  Batch-Time:  0:00:01.501131  Epoch-Time:  0:00:40.434443  Total-Time:  0:14:07.677512
-Epoch: 16 / 20  #Images: 272  Loss: 0.048604  Mean-IoU: 0.029085  Batch-Time:  0:00:01.496053  Epoch-Time:  0:00:42.974028  Total-Time:  0:14:10.217098
-Epoch: 16 / 20  #Images: 288  Loss: 0.056599  Mean-IoU: 0.029022  Batch-Time:  0:00:01.501492  Epoch-Time:  0:00:45.510213  Total-Time:  0:14:12.753283
-Epoch: 16 / 20  #Images: 289  Loss: 0.058661  Mean-IoU: 0.029018  Batch-Time:  0:00:00.397485  Epoch-Time:  0:00:46.412147  Total-Time:  0:14:13.655217
-### Epoch: 16 / 20  #Images: 289  Loss: 0.058661  Avg-IoU: 0.029587  Epoch-Time:  0:00:46.412147  Total-Time:  0:14:13.655217
-Saving model after epoch 16...
-Epoch: 17 / 20  #Images:  16  Loss: 0.056726  Mean-IoU: 0.028957  Batch-Time:  0:00:01.803615  Epoch-Time:  0:00:02.379864  Total-Time:  0:14:18.679858
-Epoch: 17 / 20  #Images:  32  Loss: 0.045154  Mean-IoU: 0.028889  Batch-Time:  0:00:01.497736  Epoch-Time:  0:00:04.910423  Total-Time:  0:14:21.210417
-Epoch: 17 / 20  #Images:  48  Loss: 0.045455  Mean-IoU: 0.028820  Batch-Time:  0:00:01.490899  Epoch-Time:  0:00:07.438005  Total-Time:  0:14:23.737998
-Epoch: 17 / 20  #Images:  64  Loss: 0.055512  Mean-IoU: 0.028759  Batch-Time:  0:00:01.499222  Epoch-Time:  0:00:09.970554  Total-Time:  0:14:26.270547
-Epoch: 17 / 20  #Images:  80  Loss: 0.048721  Mean-IoU: 0.028693  Batch-Time:  0:00:01.494311  Epoch-Time:  0:00:12.503156  Total-Time:  0:14:28.803150
-Epoch: 17 / 20  #Images:  96  Loss: 0.054237  Mean-IoU: 0.028632  Batch-Time:  0:00:01.495775  Epoch-Time:  0:00:15.032332  Total-Time:  0:14:31.332325
-Epoch: 17 / 20  #Images: 112  Loss: 0.053854  Mean-IoU: 0.028568  Batch-Time:  0:00:01.489807  Epoch-Time:  0:00:17.566854  Total-Time:  0:14:33.866847
-Epoch: 17 / 20  #Images: 128  Loss: 0.042388  Mean-IoU: 0.028499  Batch-Time:  0:00:01.498211  Epoch-Time:  0:00:20.097873  Total-Time:  0:14:36.397867
-Epoch: 17 / 20  #Images: 144  Loss: 0.049569  Mean-IoU: 0.028437  Batch-Time:  0:00:01.487278  Epoch-Time:  0:00:22.633234  Total-Time:  0:14:38.933227
-Epoch: 17 / 20  #Images: 160  Loss: 0.057185  Mean-IoU: 0.028376  Batch-Time:  0:00:01.500211  Epoch-Time:  0:00:25.168024  Total-Time:  0:14:41.468017
-Epoch: 17 / 20  #Images: 176  Loss: 0.061168  Mean-IoU: 0.028322  Batch-Time:  0:00:01.493665  Epoch-Time:  0:00:27.703243  Total-Time:  0:14:44.003237
-Epoch: 17 / 20  #Images: 192  Loss: 0.050782  Mean-IoU: 0.028260  Batch-Time:  0:00:01.499011  Epoch-Time:  0:00:30.238136  Total-Time:  0:14:46.538130
-Epoch: 17 / 20  #Images: 208  Loss: 0.043490  Mean-IoU: 0.028193  Batch-Time:  0:00:01.498537  Epoch-Time:  0:00:32.787591  Total-Time:  0:14:49.087585
-Epoch: 17 / 20  #Images: 224  Loss: 0.057842  Mean-IoU: 0.028135  Batch-Time:  0:00:01.500626  Epoch-Time:  0:00:35.326318  Total-Time:  0:14:51.626311
-Epoch: 17 / 20  #Images: 240  Loss: 0.050691  Mean-IoU: 0.028075  Batch-Time:  0:00:01.495435  Epoch-Time:  0:00:37.862036  Total-Time:  0:14:54.162029
-Epoch: 17 / 20  #Images: 256  Loss: 0.044684  Mean-IoU: 0.028013  Batch-Time:  0:00:01.501550  Epoch-Time:  0:00:40.402797  Total-Time:  0:14:56.702791
-Epoch: 17 / 20  #Images: 272  Loss: 0.051227  Mean-IoU: 0.027955  Batch-Time:  0:00:01.491908  Epoch-Time:  0:00:42.938360  Total-Time:  0:14:59.238353
-Epoch: 17 / 20  #Images: 288  Loss: 0.057241  Mean-IoU: 0.027904  Batch-Time:  0:00:01.505757  Epoch-Time:  0:00:45.479238  Total-Time:  0:15:01.779231
-Epoch: 17 / 20  #Images: 289  Loss: 0.024490  Mean-IoU: 0.027899  Batch-Time:  0:00:00.400267  Epoch-Time:  0:00:46.388045  Total-Time:  0:15:02.688038
-### Epoch: 17 / 20  #Images: 289  Loss: 0.024490  Avg-IoU: 0.028414  Epoch-Time:  0:00:46.388045  Total-Time:  0:15:02.688038
-Saving model after epoch 17...
-Epoch: 18 / 20  #Images:  16  Loss: 0.053866  Mean-IoU: 0.027841  Batch-Time:  0:00:01.491682  Epoch-Time:  0:00:02.066332  Total-Time:  0:15:07.421448
-Epoch: 18 / 20  #Images:  32  Loss: 0.055242  Mean-IoU: 0.027785  Batch-Time:  0:00:01.502821  Epoch-Time:  0:00:04.607834  Total-Time:  0:15:09.962950
-Epoch: 18 / 20  #Images:  48  Loss: 0.046773  Mean-IoU: 0.027726  Batch-Time:  0:00:01.494184  Epoch-Time:  0:00:07.144475  Total-Time:  0:15:12.499591
-Epoch: 18 / 20  #Images:  64  Loss: 0.045494  Mean-IoU: 0.027666  Batch-Time:  0:00:01.500448  Epoch-Time:  0:00:09.680167  Total-Time:  0:15:15.035284
-Epoch: 18 / 20  #Images:  80  Loss: 0.034003  Mean-IoU: 0.027598  Batch-Time:  0:00:01.493645  Epoch-Time:  0:00:12.216277  Total-Time:  0:15:17.571393
-Epoch: 18 / 20  #Images:  96  Loss: 0.046208  Mean-IoU: 0.027540  Batch-Time:  0:00:01.499490  Epoch-Time:  0:00:14.749630  Total-Time:  0:15:20.104746
-Epoch: 18 / 20  #Images: 112  Loss: 0.056805  Mean-IoU: 0.027487  Batch-Time:  0:00:01.491005  Epoch-Time:  0:00:17.283724  Total-Time:  0:15:22.638840
-Epoch: 18 / 20  #Images: 128  Loss: 0.047955  Mean-IoU: 0.027430  Batch-Time:  0:00:01.504092  Epoch-Time:  0:00:19.823428  Total-Time:  0:15:25.178544
-Epoch: 18 / 20  #Images: 144  Loss: 0.048187  Mean-IoU: 0.027372  Batch-Time:  0:00:01.495183  Epoch-Time:  0:00:22.364142  Total-Time:  0:15:27.719259
-Epoch: 18 / 20  #Images: 160  Loss: 0.046360  Mean-IoU: 0.027315  Batch-Time:  0:00:01.500889  Epoch-Time:  0:00:24.899431  Total-Time:  0:15:30.254547
-Epoch: 18 / 20  #Images: 176  Loss: 0.050465  Mean-IoU: 0.027260  Batch-Time:  0:00:01.489849  Epoch-Time:  0:00:27.428152  Total-Time:  0:15:32.783268
-Epoch: 18 / 20  #Images: 192  Loss: 0.046240  Mean-IoU: 0.027204  Batch-Time:  0:00:01.506717  Epoch-Time:  0:00:29.967834  Total-Time:  0:15:35.322950
-Epoch: 18 / 20  #Images: 208  Loss: 0.045753  Mean-IoU: 0.027147  Batch-Time:  0:00:01.496568  Epoch-Time:  0:00:32.507731  Total-Time:  0:15:37.862847
-Epoch: 18 / 20  #Images: 224  Loss: 0.038877  Mean-IoU: 0.027085  Batch-Time:  0:00:01.499987  Epoch-Time:  0:00:35.049667  Total-Time:  0:15:40.404783
-Epoch: 18 / 20  #Images: 240  Loss: 0.058092  Mean-IoU: 0.027034  Batch-Time:  0:00:01.495549  Epoch-Time:  0:00:37.585339  Total-Time:  0:15:42.940455
-Epoch: 18 / 20  #Images: 256  Loss: 0.055886  Mean-IoU: 0.026986  Batch-Time:  0:00:01.501342  Epoch-Time:  0:00:40.129559  Total-Time:  0:15:45.484675
-Epoch: 18 / 20  #Images: 272  Loss: 0.049143  Mean-IoU: 0.026934  Batch-Time:  0:00:01.492494  Epoch-Time:  0:00:42.666102  Total-Time:  0:15:48.021218
-Epoch: 18 / 20  #Images: 288  Loss: 0.042321  Mean-IoU: 0.026875  Batch-Time:  0:00:01.502565  Epoch-Time:  0:00:45.203568  Total-Time:  0:15:50.558685
-Epoch: 18 / 20  #Images: 289  Loss: 0.017919  Mean-IoU: 0.026870  Batch-Time:  0:00:00.402085  Epoch-Time:  0:00:46.111968  Total-Time:  0:15:51.467084
-### Epoch: 18 / 20  #Images: 289  Loss: 0.017919  Avg-IoU: 0.027348  Epoch-Time:  0:00:46.111968  Total-Time:  0:15:51.467084
-Saving model after epoch 18...
-Epoch: 19 / 20  #Images:  16  Loss: 0.043062  Mean-IoU: 0.026812  Batch-Time:  0:00:01.746176  Epoch-Time:  0:00:02.321473  Total-Time:  0:15:56.440140
-Epoch: 19 / 20  #Images:  32  Loss: 0.046699  Mean-IoU: 0.026761  Batch-Time:  0:00:01.494605  Epoch-Time:  0:00:04.852901  Total-Time:  0:15:58.971568
-Epoch: 19 / 20  #Images:  48  Loss: 0.051426  Mean-IoU: 0.026709  Batch-Time:  0:00:01.498082  Epoch-Time:  0:00:07.396149  Total-Time:  0:16:01.514816
-Epoch: 19 / 20  #Images:  64  Loss: 0.041274  Mean-IoU: 0.026653  Batch-Time:  0:00:01.505543  Epoch-Time:  0:00:09.941305  Total-Time:  0:16:04.059972
-Epoch: 19 / 20  #Images:  80  Loss: 0.044636  Mean-IoU: 0.026599  Batch-Time:  0:00:01.489949  Epoch-Time:  0:00:12.473508  Total-Time:  0:16:06.592176
-Epoch: 19 / 20  #Images:  96  Loss: 0.053853  Mean-IoU: 0.026550  Batch-Time:  0:00:01.503142  Epoch-Time:  0:00:15.010202  Total-Time:  0:16:09.128870
-Epoch: 19 / 20  #Images: 112  Loss: 0.040724  Mean-IoU: 0.026493  Batch-Time:  0:00:01.489285  Epoch-Time:  0:00:17.544168  Total-Time:  0:16:11.662835
-Epoch: 19 / 20  #Images: 128  Loss: 0.054058  Mean-IoU: 0.026444  Batch-Time:  0:00:01.500605  Epoch-Time:  0:00:20.076809  Total-Time:  0:16:14.195476
-Epoch: 19 / 20  #Images: 144  Loss: 0.045882  Mean-IoU: 0.026393  Batch-Time:  0:00:01.493063  Epoch-Time:  0:00:22.613264  Total-Time:  0:16:16.731932
-Epoch: 19 / 20  #Images: 160  Loss: 0.040358  Mean-IoU: 0.026338  Batch-Time:  0:00:01.501838  Epoch-Time:  0:00:25.152132  Total-Time:  0:16:19.270800
-Epoch: 19 / 20  #Images: 176  Loss: 0.048141  Mean-IoU: 0.026288  Batch-Time:  0:00:01.491520  Epoch-Time:  0:00:27.687011  Total-Time:  0:16:21.805678
-Epoch: 19 / 20  #Images: 192  Loss: 0.047481  Mean-IoU: 0.026238  Batch-Time:  0:00:01.499249  Epoch-Time:  0:00:30.223885  Total-Time:  0:16:24.342552
-Epoch: 19 / 20  #Images: 208  Loss: 0.045689  Mean-IoU: 0.026188  Batch-Time:  0:00:01.493114  Epoch-Time:  0:00:32.755514  Total-Time:  0:16:26.874181
-Epoch: 19 / 20  #Images: 224  Loss: 0.056579  Mean-IoU: 0.026145  Batch-Time:  0:00:01.502855  Epoch-Time:  0:00:35.292625  Total-Time:  0:16:29.411293
-Epoch: 19 / 20  #Images: 240  Loss: 0.053346  Mean-IoU: 0.026097  Batch-Time:  0:00:01.489643  Epoch-Time:  0:00:37.826565  Total-Time:  0:16:31.945232
-Epoch: 19 / 20  #Images: 256  Loss: 0.045050  Mean-IoU: 0.026046  Batch-Time:  0:00:01.504989  Epoch-Time:  0:00:40.367093  Total-Time:  0:16:34.485761
-Epoch: 19 / 20  #Images: 272  Loss: 0.037951  Mean-IoU: 0.025992  Batch-Time:  0:00:01.493178  Epoch-Time:  0:00:42.912238  Total-Time:  0:16:37.030905
-Epoch: 19 / 20  #Images: 288  Loss: 0.034551  Mean-IoU: 0.025936  Batch-Time:  0:00:01.499019  Epoch-Time:  0:00:45.447033  Total-Time:  0:16:39.565701
-Epoch: 19 / 20  #Images: 289  Loss: 0.045182  Mean-IoU: 0.025933  Batch-Time:  0:00:00.399775  Epoch-Time:  0:00:46.352736  Total-Time:  0:16:40.471403
-### Epoch: 19 / 20  #Images: 289  Loss: 0.045182  Avg-IoU: 0.026370  Epoch-Time:  0:00:46.352736  Total-Time:  0:16:40.471403
-Saving model after epoch 19...
-Epoch: 20 / 20  #Images:  16  Loss: 0.046798  Mean-IoU: 0.025885  Batch-Time:  0:00:01.773552  Epoch-Time:  0:00:02.352326  Total-Time:  0:16:45.490509
-Epoch: 20 / 20  #Images:  32  Loss: 0.048667  Mean-IoU: 0.025836  Batch-Time:  0:00:01.497458  Epoch-Time:  0:00:04.885760  Total-Time:  0:16:48.023943
-Epoch: 20 / 20  #Images:  48  Loss: 0.043736  Mean-IoU: 0.025786  Batch-Time:  0:00:01.496306  Epoch-Time:  0:00:07.422442  Total-Time:  0:16:50.560626
-Epoch: 20 / 20  #Images:  64  Loss: 0.048122  Mean-IoU: 0.025739  Batch-Time:  0:00:01.496426  Epoch-Time:  0:00:09.957783  Total-Time:  0:16:53.095966
-Epoch: 20 / 20  #Images:  80  Loss: 0.061990  Mean-IoU: 0.025700  Batch-Time:  0:00:01.492582  Epoch-Time:  0:00:12.491711  Total-Time:  0:16:55.629894
-Epoch: 20 / 20  #Images:  96  Loss: 0.037445  Mean-IoU: 0.025647  Batch-Time:  0:00:01.492811  Epoch-Time:  0:00:15.022989  Total-Time:  0:16:58.161172
-Epoch: 20 / 20  #Images: 112  Loss: 0.042380  Mean-IoU: 0.025597  Batch-Time:  0:00:01.487159  Epoch-Time:  0:00:17.552150  Total-Time:  0:17:00.690334
-Epoch: 20 / 20  #Images: 128  Loss: 0.049809  Mean-IoU: 0.025550  Batch-Time:  0:00:01.496417  Epoch-Time:  0:00:20.083225  Total-Time:  0:17:03.221409
-Epoch: 20 / 20  #Images: 144  Loss: 0.033480  Mean-IoU: 0.025495  Batch-Time:  0:00:01.486384  Epoch-Time:  0:00:22.607537  Total-Time:  0:17:05.745721
-Epoch: 20 / 20  #Images: 160  Loss: 0.054480  Mean-IoU: 0.025455  Batch-Time:  0:00:01.493785  Epoch-Time:  0:00:25.135062  Total-Time:  0:17:08.273246
-Epoch: 20 / 20  #Images: 176  Loss: 0.058020  Mean-IoU: 0.025415  Batch-Time:  0:00:01.489998  Epoch-Time:  0:00:27.663335  Total-Time:  0:17:10.801518
-Epoch: 20 / 20  #Images: 192  Loss: 0.035568  Mean-IoU: 0.025364  Batch-Time:  0:00:01.494300  Epoch-Time:  0:00:30.193704  Total-Time:  0:17:13.331887
-Epoch: 20 / 20  #Images: 208  Loss: 0.043281  Mean-IoU: 0.025316  Batch-Time:  0:00:01.486909  Epoch-Time:  0:00:32.725743  Total-Time:  0:17:15.863927
-Epoch: 20 / 20  #Images: 224  Loss: 0.049507  Mean-IoU: 0.025272  Batch-Time:  0:00:01.496023  Epoch-Time:  0:00:35.259330  Total-Time:  0:17:18.397514
-Epoch: 20 / 20  #Images: 240  Loss: 0.040763  Mean-IoU: 0.025225  Batch-Time:  0:00:01.494308  Epoch-Time:  0:00:37.805171  Total-Time:  0:17:20.943355
-Epoch: 20 / 20  #Images: 256  Loss: 0.041255  Mean-IoU: 0.025179  Batch-Time:  0:00:01.495305  Epoch-Time:  0:00:40.344724  Total-Time:  0:17:23.482908
-Epoch: 20 / 20  #Images: 272  Loss: 0.047765  Mean-IoU: 0.025136  Batch-Time:  0:00:01.492405  Epoch-Time:  0:00:42.885328  Total-Time:  0:17:26.023512
-Epoch: 20 / 20  #Images: 288  Loss: 0.046483  Mean-IoU: 0.025092  Batch-Time:  0:00:01.497619  Epoch-Time:  0:00:45.422983  Total-Time:  0:17:28.561167
-Epoch: 20 / 20  #Images: 289  Loss: 0.043720  Mean-IoU: 0.025089  Batch-Time:  0:00:00.402061  Epoch-Time:  0:00:46.332149  Total-Time:  0:17:29.470333
-### Epoch: 20 / 20  #Images: 289  Loss: 0.043720  Avg-IoU: 0.025481  Epoch-Time:  0:00:46.332149  Total-Time:  0:17:29.470333
-Saving model after epoch 20...
+Training Model:   0%|          | 0/20 [00:00<?, ?Epoch/s]                                                         Epoch:  1/20, #images=289, loss=0.268156, avg-iou=0.172755
+Training Model:   0%|          | 0/20 [00:56<?, ?Epoch/s]Training Model:   5%|▌         | 1/20 [00:56<17:46, 56.13s/Epoch]                                                                 Epoch:  2/20, #images=289, loss=0.154972, avg-iou=0.107669
+Training Model:   5%|▌         | 1/20 [01:46<33:39, 106.31s/Epoch]Training Model:  10%|█         | 2/20 [01:46<15:56, 53.16s/Epoch]                                                                  Epoch:  3/20, #images=289, loss=0.086536, avg-iou=0.080282
+Training Model:  10%|█         | 2/20 [02:36<23:28, 78.24s/Epoch]Training Model:  15%|█▌        | 3/20 [02:36<14:46, 52.16s/Epoch]                                                                 Epoch:  4/20, #images=289, loss=0.116603, avg-iou=0.066256
+Training Model:  15%|█▌        | 3/20 [03:26<19:31, 68.90s/Epoch]Training Model:  20%|██        | 4/20 [03:26<13:46, 51.67s/Epoch]                                                                 Epoch:  5/20, #images=289, loss=0.201908, avg-iou=0.057187
+Training Model:  20%|██        | 4/20 [04:16<17:07, 64.24s/Epoch]                                                                 Saving model after epoch 5...
+Training Model:  20%|██        | 4/20 [04:16<17:07, 64.24s/Epoch]Training Model:  25%|██▌       | 5/20 [04:20<13:00, 52.01s/Epoch]                                                                 Epoch:  6/20, #images=289, loss=0.062740, avg-iou=0.051240
+Training Model:  25%|██▌       | 5/20 [05:10<15:31, 62.08s/Epoch]Training Model:  30%|███       | 6/20 [05:10<12:04, 51.73s/Epoch]                                                                 Epoch:  7/20, #images=289, loss=0.115725, avg-iou=0.046462
+Training Model:  30%|███       | 6/20 [06:00<14:01, 60.12s/Epoch]Training Model:  35%|███▌      | 7/20 [06:00<11:09, 51.53s/Epoch]                                                                 Epoch:  8/20, #images=289, loss=0.073453, avg-iou=0.042688
+Training Model:  35%|███▌      | 7/20 [06:50<12:43, 58.71s/Epoch]Training Model:  40%|████      | 8/20 [06:50<10:16, 51.37s/Epoch]                                                                 Epoch:  9/20, #images=289, loss=0.069397, avg-iou=0.039528
+Training Model:  40%|████      | 8/20 [07:41<11:31, 57.66s/Epoch]Training Model:  45%|████▌     | 9/20 [07:41<09:23, 51.25s/Epoch]                                                                 Epoch: 10/20, #images=289, loss=0.043299, avg-iou=0.036875
+Training Model:  45%|████▌     | 9/20 [08:31<10:25, 56.84s/Epoch]                                                                 Saving model after epoch 10...
+Training Model:  45%|████▌     | 9/20 [08:31<10:25, 56.84s/Epoch]Training Model:  50%|█████     | 10/20 [08:33<08:33, 51.38s/Epoch]                                                                  Epoch: 11/20, #images=289, loss=0.059096, avg-iou=0.034608
+Training Model:  50%|█████     | 10/20 [09:24<09:24, 56.41s/Epoch]Training Model:  55%|█████▌    | 11/20 [09:24<07:41, 51.28s/Epoch]                                                                  Epoch: 12/20, #images=289, loss=0.081155, avg-iou=0.032697
+Training Model:  55%|█████▌    | 11/20 [10:14<08:22, 55.85s/Epoch]Training Model:  60%|██████    | 12/20 [10:14<06:49, 51.20s/Epoch]                                                                  Epoch: 13/20, #images=289, loss=0.066446, avg-iou=0.031023
+Training Model:  60%|██████    | 12/20 [11:04<07:23, 55.39s/Epoch]Training Model:  65%|██████▌   | 13/20 [11:04<05:57, 51.13s/Epoch]                                                                  Epoch: 14/20, #images=289, loss=0.021787, avg-iou=0.029546
+Training Model:  65%|██████▌   | 13/20 [11:54<06:24, 54.99s/Epoch]Training Model:  70%|███████   | 14/20 [11:54<05:06, 51.06s/Epoch]                                                                  Epoch: 15/20, #images=289, loss=0.043094, avg-iou=0.028219
+Training Model:  70%|███████   | 14/20 [12:45<05:27, 54.65s/Epoch]                                                                  Saving model after epoch 15...
+Training Model:  70%|███████   | 14/20 [12:45<05:27, 54.65s/Epoch]Training Model:  75%|███████▌  | 15/20 [12:47<04:15, 51.16s/Epoch]                                                                  Epoch: 16/20, #images=289, loss=0.029002, avg-iou=0.027021
+Training Model:  75%|███████▌  | 15/20 [13:37<04:32, 54.51s/Epoch]Training Model:  80%|████████  | 16/20 [13:37<03:24, 51.10s/Epoch]                                                                  Epoch: 17/20, #images=289, loss=0.032497, avg-iou=0.025960
+Training Model:  80%|████████  | 16/20 [14:27<03:36, 54.24s/Epoch]Training Model:  85%|████████▌ | 17/20 [14:27<02:33, 51.05s/Epoch]                                                                  Epoch: 18/20, #images=289, loss=0.034578, avg-iou=0.025016
+Training Model:  85%|████████▌ | 17/20 [15:18<02:42, 54.00s/Epoch]Training Model:  90%|█████████ | 18/20 [15:18<01:42, 51.00s/Epoch]                                                                  Epoch: 19/20, #images=289, loss=0.032550, avg-iou=0.024128
+Training Model:  90%|█████████ | 18/20 [16:08<01:47, 53.79s/Epoch]Training Model:  95%|█████████▌| 19/20 [16:08<00:50, 50.96s/Epoch]                                                                  Epoch: 20/20, #images=289, loss=0.040829, avg-iou=0.023342
+Training Model:  95%|█████████▌| 19/20 [16:58<00:53, 53.60s/Epoch]                                                                  Saving model after epoch 20...
+Training Model:  95%|█████████▌| 19/20 [16:58<00:53, 53.60s/Epoch]Training Model: 100%|██████████| 20/20 [17:00<00:00, 51.03s/Epoch]
 Saving trained model...
 Saving inference samples...
-Training Finished. Saving test images to: ./runs/1517854262.1998906
+Training Finished. Saving test images to: ./build/1518393036.3169856
