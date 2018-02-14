@@ -1,6 +1,7 @@
-# Semantic Segmentation
-### Introduction
-In this project, you'll label the pixels of a road in images using a Fully Convolutional Network (FCN).
+# Semantic Segmentation Project
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+
+This project uses a Fully Convolutional Network (FCN) to classify areas of road/non-road in a series of images.  The process of semantic segmentation assigns an object classification to _each pixel_ of an image.  The FCN used in this project mimics the one built in [Fully Convolutional Networks for Semantic Segmentation](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf).
 
 ### Setup
 ##### Frameworks and Packages
