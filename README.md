@@ -6,12 +6,17 @@ This project uses a Fully Convolutional Network (FCN) to classify areas of road/
 ![](output_sample.gif)
 ## Dependencies
 Make sure you have the following is installed:
- - [Python 3](https://www.python.org/)
- - [TensorFlow](https://www.tensorflow.org/)
- - [NumPy](http://www.numpy.org/)
- - [SciPy](https://www.scipy.org/)
+- [Python 3](https://www.python.org/)
+- [TensorFlow](https://www.tensorflow.org/)
+- [NumPy](http://www.numpy.org/)
+- [SciPy](https://www.scipy.org/)
 ## Dataset
 Download the [Kitti Road dataset](http://www.cvlibs.net/datasets/kitti/eval_road.php) from [here](http://www.cvlibs.net/download.php?file=data_road.zip).  Extract the dataset in the `data` folder.  This will create the folder `data_road` with all the training a test images.
+
+The dataset consists of 289 training and 290 test images with three different categories of road scenes:
+- uu - urban unmarked (98/100)
+- um - urban marked (95/96)
+- umm - urban multiple marked lanes (96/94)
 
 ## Runing the Code
 Run the following command to run the project:
@@ -29,6 +34,11 @@ The goals of this project are the following:
 * The function `train_nn` is implemented correctly.
 * Ensure all the unit tests.
 * The loss of the network should be printed while the network is training.
+
+## FCN Architecture
+Fully convolutional networks are trained end-to-end and include an encoding/decoding phase that preserves spatial information throughout the entire network.  Included with the decoding phase are skip connections.
+
+![](fcn_arch.png)
 
 ### Tips
 - The link for the frozen `VGG16` model is hardcoded into `helper.py`.  The model can be found [here](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/vgg.zip)
