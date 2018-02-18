@@ -40,13 +40,62 @@ Fully convolutional networks are trained end-to-end and include an encoding/deco
 
 ![](fcn_arch.png)
 
-### Tips
-- The link for the frozen `VGG16` model is hardcoded into `helper.py`.  The model can be found [here](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/vgg.zip)
-- The model is not vanilla `VGG16`, but a fully convolutional version, which already contains the 1x1 convolutions to replace the fully connected layers. Please see this [forum post](https://discussions.udacity.com/t/here-is-some-advice-and-clarifications-about-the-semantic-segmentation-project/403100/8?u=subodh.malgonde) for more information.  A summary of additional points, follow. 
-- The original FCN-8s was trained in stages. The authors later uploaded a version that was trained all at once to their GitHub repo.  The version in the GitHub repo has one important difference: The outputs of pooling layers 3 and 4 are scaled before they are fed into the 1x1 convolutions.  As a result, some students have found that the model learns much better with the scaling layers included. The model may not converge substantially faster, but may reach a higher IoU and accuracy. 
-- When adding l2-regularization, setting a regularizer in the arguments of the `tf.layers` is not enough. Regularization loss terms must be manually added to your loss function. otherwise regularization is not implemented.
- 
+### Layers
+```
+layer_7_conv: conv2d(kernel_size=1, strides=(1, 1))
+layer_7_upsampled: conv2d_transpose(kernel_size=4, strides=(2, 2))
+layer_4_conv: conv2d_transpose(kernel_size=1, strides=(1, 1))
+layer_4_skip: add(layer_7_upsampled, layer_4_conv)
+layer_4_upsampled: conv2d_transpose(kernel_size=4, strides=(2, 2))
+layer_3_conv: conv2d_transpose(kernel_size=1, strides=(1, 1))
+layer_3_skip: add(layer_4_upsampled, layer_3_conv)
+```
+
+Each convolution uses a kernal initializer and regularizer.
+
+### Hyperparameters
+The GPU would complain of memory errors until batch size was lowered to 12.
+
+- Kernel Standard Deviation = 1e-3
+- L2 Regularizer = 1e-5
+- Keep Probability = 0.5
+- Learning Rate = 1e-4
+- Total Epochs = 20
+- Batch Size = 12
+- Number of Classes = 2
+- Image Shape = (160, 576)
+
 # Results
+After twiddling the hyperparameters a bit, the model trained well and the FCN classifies the road/non-road areas well.
+
+| Epoch | Loss      | Avg IoU  | Total Time |
+|:-----:|:---------:|:--------:|:----------:|
+| 1     | 0.268156  | 0.172755 | 00:56      |
+| 2     | 0.154972  | 0.107669 | 01:46      |
+| 3     | 0.086536  | 0.080282 | 02:36      |
+| 4     | 0.116603  | 0.066256 | 03:26      |
+| 5     | 0.201908  | 0.057187 | 04:20      |
+| 6     | 0.062740  | 0.051240 | 05:10      |
+| 7     | 0.115725  | 0.046462 | 06:00      |
+| 8     | 0.073453  | 0.042688 | 06:50      |
+| 9     | 0.069397  | 0.039528 | 07:41      |
+| 10    | 0.043299  | 0.036875 | 08:31      |
+| 11    | 0.059096  | 0.034608 | 09:24      |
+| 12    | 0.081155  | 0.032697 | 10:14      |
+| 13    | 0.066446  | 0.031023 | 11:04      |
+| 14    | 0.021787  | 0.029546 | 11:54      |
+| 15    | 0.043094  | 0.028219 | 12:45      |
+| 16    | 0.029002  | 0.027021 | 13:37      |
+| 17    | 0.032497  | 0.025960 | 14:27      |
+| 18    | 0.034578  | 0.025016 | 15:18      |
+| 19    | 0.032550  | 0.024128 | 16:08      |
+| 20    | 0.040829  | 0.023342 | 17:00      |
+
+```
+Training Model: 100%|██████████| 20/20 [17:00<00:00, 51.03s/Epoch]
+```
 
 # Lessons Learned
+If the training set was larger, the accuracy would be better.  Larger training sets include more actual images (like the cityscapes dataset) and/or the use of **augmentation**.
 
+Also, I would have liked to train the model for 3 classes instead of 2.
