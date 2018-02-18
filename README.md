@@ -32,7 +32,7 @@ The goals of this project are the following:
 * The function `layers` is implemented correctly.
 * The function `optimize` is implemented correctly.
 * The function `train_nn` is implemented correctly.
-* Ensure all the unit tests.
+* Ensure all the unit tests pass.
 * The loss of the network should be printed while the network is training.
 
 ## FCN Architecture
