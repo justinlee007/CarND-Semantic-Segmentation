@@ -5,7 +5,7 @@ This project uses a Fully Convolutional Network (FCN) to classify areas of road/
 
 ![](output_sample.gif)
 ## Dependencies
-Make sure you have the following is installed:
+Make sure you have the following installed:
 - [Python 3](https://www.python.org/)
 - [TensorFlow](https://www.tensorflow.org/)
 - [NumPy](http://www.numpy.org/)
