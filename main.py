@@ -1,6 +1,5 @@
 import os.path
 import sys
-import time
 import warnings
 from distutils.version import LooseVersion
 
@@ -240,13 +239,10 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
         image_count = 0
 
         for image, label in get_batches_fn(batch_size):
-            start_batch_time = time.time()
-
             summary, _, loss = sess.run([merged, train_op, cross_entropy_loss], feed_dict={input_image: image,
                                                                                            correct_label: label,
                                                                                            keep_prob: KEEP_PROB,
                                                                                            learning_rate: LEARNING_RATE})
-            stop_time = time.time()
             image_count += len(image)
 
             train_writer.add_summary(summary, epoch)
@@ -256,9 +252,7 @@ def train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_l
                 iou = iou_obj[0]
                 iou_op = iou_obj[1]
 
-                sess.run(iou_op, feed_dict={input_image: image,
-                                            correct_label: label,
-                                            keep_prob: 1.0})
+                sess.run(iou_op, feed_dict={input_image: image, correct_label: label, keep_prob: 1.0})
                 mean_iou = sess.run(iou)
                 total_iou += mean_iou * len(image)
 
